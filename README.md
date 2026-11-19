@@ -1,34 +1,59 @@
-# Sample websites — Chirag
+# Website samples — Chirag
 
-Demo websites built to show small businesses what they can get. All plain HTML, CSS and a little JavaScript — no build step, no dependencies. Open any file by double-clicking it.
+Sample websites for small businesses, plus my own one-page services site.
+Everything here is plain HTML, CSS and a little JavaScript: no build step, no
+dependencies, nothing to install. Open any file in a browser and it works.
 
-## What's here
+**These are samples.** The three businesses are made up — they are demos built to
+show what a real site would look like, not past clients. The photos are
+free-licence Unsplash images.
 
-| File | What it is |
-|---|---|
-| `files/index.html` | My services and prices page (what I send to businesses) |
-| `files/demos/index.html` | Hub page listing the three samples below |
-| `files/demos/salon.html` | Sample 1 — simple business site with price list and WhatsApp booking |
-| `files/demos/coaching.html` | Sample 2 — site with a working enquiry form, staff list and CSV export |
-| `files/demos/gym.html` | Sample 3 — membership plans with an online checkout flow |
+## What is in here
 
-The three samples use invented businesses. They are demos of the work, not client projects.
+```
+files/
+  index.html              my services and prices page
+  demos/
+    index.html            the samples index ("three businesses, three levels")
+    salon/                Kaya Salon & Spa, Vashi          — ₹12,000 sample
+      index.html  services.html  visit.html  style.css
+    coaching/             Bright Minds Classes, Nerul      — ₹35,000 sample
+      index.html  batches.html  book.html    style.css
+    gym/                  Iron Yard Fitness, Kharghar      — ₹55,000 sample
+      index.html  plans.html  inside.html    style.css
+```
 
-## Notes on what is real vs simulated
+Each sample is a small multi-page site that shares one stylesheet inside its
+folder, so all the pages look the same and stay easy to edit.
 
-- The enquiry form in `coaching.html` stores submissions in the browser (localStorage) so the flow can be demonstrated without a server.
-- The checkout in `gym.html` is a demo screen. On a live site it is replaced by Razorpay (UPI, cards, netbanking), and the order is stored in a real database.
+- `salon/` — prices and a visit page; the booking buttons open WhatsApp with the
+  message already written.
+- `coaching/` — a batches-and-fees table, and a trial booking form that saves
+  every enquiry to a list beside it and can download the list as a CSV.
+- `gym/` — memberships with a demo checkout that produces a member ID and a
+  receipt.
 
-## Publishing it free with GitHub Pages
+The forms and the checkout are demos: the coaching list is stored in the
+browser, and no payment is taken anywhere. On a real build the list goes to a
+database and payments run through Razorpay.
 
-1. Push this repo to GitHub.
-2. Repo → **Settings** → **Pages**.
-3. Source: **Deploy from a branch**, Branch: `main`, folder `/ (root)`.
-4. After a minute the samples appear at:
-   `https://<your-username>.github.io/<repo-name>/files/demos/`
+## Viewing it
 
-Send that link to businesses — it works on any phone.
+Locally, open `files/index.html` in a browser.
+
+Online, publish the repository with GitHub Pages:
+
+1. Settings → Pages
+2. Source: **Deploy from a branch**
+3. Branch **main**, folder **/ (root)**
+4. Save
+
+The site then appears at
+`https://chiragisded.github.io/website-samples/files/index.html`, and the samples
+at `https://chiragisded.github.io/website-samples/files/demos/`.
 
 ## Editing
 
-Every page is one self-contained file. Colours live in the `:root` block at the top of each file's `<style>`.
+All pages use the same small set of CSS custom properties at the top of each
+`style.css` (colours, fonts, spacing), so changing a colour in one place changes
+it across that whole sample. Text sits in the HTML — no templates, no build.
