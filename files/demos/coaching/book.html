@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a free trial class — Bright Minds Classes, Nerul</title>
+<meta name="description" content="Request a free trial class at Bright Minds Classes in Nerul. Every enquiry is saved to a list the office can see.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="samplebar">
+  <b>Sample website.</b> Bright Minds Classes is not a real coaching class — it is a demo built to show what you would get.
+  <a href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20saw%20the%20coaching%20sample%20and%20want%20one%20for%20my%20business">Want one for your business?</a>
+</div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="mark">B</span>Bright Minds Classes</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="batches.html">Batches and fees</a>
+      <a href="book.html" aria-current="page">Book a trial</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap" style="padding:52px 0 8px">
+    <h1>Book a free trial class</h1>
+    <p>One class, no fees. Fill this in and the office will call you within a day to confirm the slot.</p>
+  </div>
+
+  <section style="padding-top:24px">
+    <div class="wrap" style="display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:28px;align-items:start">
+
+      <div class="formcard">
+        <h2>Trial request</h2>
+        <p>Only used to confirm the slot.</p>
+        <form id="enquiry" novalidate>
+          <div class="field">
+            <label for="name">Student's name</label>
+            <input id="name" name="name" type="text" autocomplete="off" placeholder="Aarav Sharma" required>
+          </div>
+          <div class="field">
+            <label for="phone">Parent's mobile number</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="98765 43210" required>
+          </div>
+          <div class="field">
+            <label for="course">Which batch</label>
+            <select id="course" name="course" required>
+              <option value="">Choose a batch</option>
+              <option>Class 8 — Maths and Science</option>
+              <option>Class 9 — Maths and Science</option>
+              <option>Class 10 — Board batch</option>
+              <option>Class 11 and 12 — Physics, Chemistry, Maths</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="slot">Preferred time</label>
+            <select id="slot" name="slot" required>
+              <option value="">Choose a slot</option>
+              <option>Morning, 7:00 to 9:00 am</option>
+              <option>Evening, 4:00 to 6:00 pm</option>
+              <option>Evening, 6:30 to 8:00 pm</option>
+            </select>
+          </div>
+          <button class="btn" type="submit" style="width:100%">Request trial class</button>
+        </form>
+        <p class="msg" id="msg" role="status" aria-live="polite">Saved. On a live site this lands in the office list on the right and sends you a WhatsApp confirmation.</p>
+      </div>
+
+      <div>
+        <div class="office">
+          <div class="office-head">
+            <h2>Office view</h2>
+            <span class="count" id="count">0 saved</span>
+          </div>
+          <div id="rows" aria-live="polite"></div>
+          <div class="office-actions">
+            <button type="button" id="export">Download list as CSV</button>
+            <button type="button" id="clear">Clear test data</button>
+          </div>
+          <p class="note">Demo only. Entries are kept in this browser; the real build stores them in a database your staff can open from any phone.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="note-card">
+        <b>This is a sample, not a real coaching class.</b> The form works, and everything you submit appears in the
+        office list on this page — that part is real. What is fake is the business: the name, the fees and the timings.
+        Your site would carry your own, and anything extra you ask for, like attendance or fee reminders.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <span>Bright Minds Classes, Nerul, Navi Mumbai</span>
+    <span>Sample site by <a href="../index.html">Chirag</a></span>
+  </div>
+</footer>
+
+<a class="sample-pill" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20saw%20the%20coaching%20sample%20and%20want%20one%20for%20my%20business">
+  <b>Sample site by Chirag</b>
+  <span>Want one like this? Message me</span>
+</a>
+
+<script>
+(function () {
+  var KEY = 'brightminds-enquiries';
+  var form = document.getElementById('enquiry');
+  var msg = document.getElementById('msg');
+  var rows = document.getElementById('rows');
+  var count = document.getElementById('count');
+
+  function load() {
+    try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; }
+  }
+  function save(list) {
+    try { localStorage.setItem(KEY, JSON.stringify(list)); } catch (e) {}
+  }
+  function esc(value) {
+    return String(value == null ? '' : value).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function render() {
+    var list = load();
+    count.textContent = list.length === 1 ? '1 saved' : list.length + ' saved';
+    if (!list.length) {
+      rows.innerHTML = '<p class="empty">Nothing yet. Fill the form and the request appears here.</p>';
+      return;
+    }
+    var html = '<table><thead><tr><th scope="col">Student</th><th scope="col">Mobile</th><th scope="col">Batch</th><th scope="col">Slot</th><th scope="col">Received</th></tr></thead><tbody>';
+    list.slice().reverse().forEach(function (r) {
+      html += '<tr><td><b>' + esc(r.name) + '</b></td><td>' + esc(r.phone) + '</td><td>' + esc(r.course) +
+              '</td><td>' + esc(r.slot) + '</td><td>' + esc(r.when) + '</td></tr>';
+    });
+    rows.innerHTML = html + '</tbody></table>';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var list = load();
+    list.push({
+      name: document.getElementById('name').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      course: document.getElementById('course').value,
+      slot: document.getElementById('slot').value,
+      when: new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })
+    });
+    save(list);
+    form.reset();
+    msg.classList.add('show');
+    setTimeout(function () { msg.classList.remove('show'); }, 6000);
+    render();
+  });
+
+  document.getElementById('clear').addEventListener('click', function () {
+    save([]);
+    render();
+  });
+
+  document.getElementById('export').addEventListener('click', function () {
+    var list = load();
+    if (!list.length) return;
+    var csv = 'Name,Mobile,Batch,Slot,Received\n' + list.map(function (r) {
+      return [r.name, r.phone, r.course, r.slot, r.when].map(function (v) {
+        return '"' + String(v).replace(/"/g, '""') + '"';
+      }).join(',');
+    }).join('\n');
+    var url = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'trial-requests.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
