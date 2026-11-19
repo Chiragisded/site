@@ -97,6 +97,31 @@
   footer{border-top:1px solid var(--line);padding:30px 0;font-size:13.5px;color:var(--soft)}
   .foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 
+  /* sample notice */
+  .samplebar{
+    background:#2a2320;color:#f0e5d9;font-size:13px;text-align:center;
+    padding:11px 18px;line-height:1.5;
+  }
+  .samplebar b{color:#fff;letter-spacing:.1em;text-transform:uppercase;font-size:11px;margin-right:6px}
+  .samplebar a{color:#f0b48f;text-decoration:none;border-bottom:1px solid rgba(240,180,143,.45)}
+
+  /* photos */
+  .hero-photo{
+    width:100%;aspect-ratio:16/10;object-fit:cover;display:block;
+    border-radius:4px;margin-bottom:16px;background:#e9dfd3;
+  }
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .gallery img{
+    width:100%;aspect-ratio:1/1;object-fit:cover;display:block;
+    border-radius:4px;background:#e9dfd3;
+  }
+  .gallery img:first-child{grid-column:span 2;aspect-ratio:16/7}
+  .note-card{
+    border:1px solid var(--line);background:var(--card);border-radius:4px;
+    padding:32px 30px;font-size:15.5px;color:var(--soft);line-height:1.7;
+  }
+  .note-card b{color:var(--ink);font-weight:600}
+
   /* sample badge */
   .sample{
     position:fixed;right:18px;bottom:18px;z-index:60;
@@ -119,6 +144,8 @@
 </style>
 </head>
 <body>
+
+<div class="samplebar"><b>Sample website</b> · Kaya Salon isn't a real business — it's a demo I built to show what you'd get. <a href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20saw%20the%20salon%20sample%20and%20want%20one%20for%20my%20business">Want one for yours?</a></div>
 
 <header>
   <div class="wrap nav">
@@ -146,6 +173,8 @@
       <p class="note">Open Tuesday to Sunday, 10am – 8:30pm. Closed Mondays.</p>
     </div>
 
+    <div>
+      <img class="hero-photo" src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=1200&amp;q=80&amp;auto=format&amp;fit=crop" alt="Inside the salon: styling chairs, mirrors and a brick wall" loading="lazy">
     <div class="pricecard">
       <h3>Most booked</h3>
       <p class="sub">Prices for men and women, all inclusive</p>
@@ -157,6 +186,7 @@
         <li><span>Head massage, 30 min</span><span>₹500</span></li>
       </ul>
       <p class="foot">Bridal packages from ₹8,000. Ask for Nisha.</p>
+    </div>
     </div>
   </div>
 
@@ -209,6 +239,21 @@
     </div>
   </section>
 
+  <section id="inside">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Inside</p>
+        <h2>This is the room.</h2>
+        <p>Four chairs, a window seat, and no queue on a Tuesday afternoon.</p>
+      </div>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=1600&amp;q=80&amp;auto=format&amp;fit=crop" alt="Styling chairs in front of large mirrors" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900&amp;q=80&amp;auto=format&amp;fit=crop" alt="Hair after a blow dry" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&amp;q=80&amp;auto=format&amp;fit=crop" alt="Salon stations along the window" loading="lazy">
+      </div>
+    </div>
+  </section>
+
   <section id="visit">
     <div class="wrap">
       <div class="info">
@@ -228,6 +273,17 @@
           </table>
           <p style="margin-top:18px">Walk-ins welcome. On Saturdays, booking is safer.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="note-card">
+        <b>This is a sample, not a real business.</b> I built it to show what a salon site can look like — the price list,
+        the hours, the WhatsApp booking, the photos. Your version would use your own name, your own pictures and your own
+        prices, in the colours you like. Tell me how you want it to look, what your customers always ask, and it gets
+        better than this one.
       </div>
     </div>
   </section>
