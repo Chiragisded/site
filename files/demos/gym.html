@@ -82,6 +82,31 @@
   footer{border-top:1px solid var(--line);padding:30px 0;font-size:13.5px;color:var(--muted)}
   .foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 
+  /* sample notice */
+  .samplebar{
+    background:var(--accent);color:#0c0c0d;font-size:13px;text-align:center;
+    padding:11px 18px;line-height:1.5;font-weight:500;
+  }
+  .samplebar b{letter-spacing:.1em;text-transform:uppercase;font-size:11px;margin-right:6px}
+  .samplebar a{color:#0c0c0d;text-decoration:none;border-bottom:1.5px solid rgba(12,12,13,.5)}
+
+  /* photos */
+  img{max-width:100%}
+  .band{
+    width:100%;aspect-ratio:21/9;object-fit:cover;display:block;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .gallery img{
+    width:100%;aspect-ratio:1/1;object-fit:cover;display:block;
+    border-radius:10px;background:#1c1c1f;
+  }
+  .note-card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:30px 28px;font-size:15.5px;color:var(--muted);line-height:1.7;
+  }
+  .note-card b{color:var(--text);font-weight:600}
+
   /* modal */
   .overlay{
     position:fixed;inset:0;z-index:80;display:none;
@@ -135,6 +160,8 @@
 </head>
 <body>
 
+<div class="samplebar"><b>Sample website</b> · Iron Yard isn't a real gym — it's a demo I built, including the online payment flow. <a href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20saw%20the%20gym%20sample%20and%20want%20one%20for%20my%20business">Want one for yours?</a></div>
+
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top">Iron<span>Yard</span></a>
@@ -164,6 +191,8 @@
       <span><b>Free</b> first session</span>
     </div>
   </div>
+
+  <img class="band" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1800&amp;q=80&amp;auto=format&amp;fit=crop" alt="Lifting a barbell from the floor" loading="lazy">
 
   <section id="plans">
     <div class="wrap">
@@ -238,6 +267,31 @@
           <h3>Open till 11pm</h3>
           <p>For anyone whose day starts after their shift ends. Doors close at 11, no exceptions.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="inside">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Inside</p>
+        <h2>The floor, as it is.</h2>
+      </div>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&amp;q=80&amp;auto=format&amp;fit=crop" alt="Dumbbell rack on the gym floor" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=900&amp;q=80&amp;auto=format&amp;fit=crop" alt="Dumbbell curl during a session" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=900&amp;q=80&amp;auto=format&amp;fit=crop" alt="Cardio machines along the windows" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="note-card">
+        <b>This is a sample, not a real gym.</b> The plans, the joining form and the online checkout are all demos of what
+        you'd get — on a live site the payment goes through Razorpay for real money, into your own account.
+        Your version would carry your gym's name, your photos, your actual plans, and any offer you're running this month.
+        Tell me how you want it to look and it gets better than this.
       </div>
     </div>
   </section>
