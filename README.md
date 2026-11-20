@@ -1,59 +1,52 @@
-# Website samples — Chirag
+# Sample websites — Chirag
 
-Sample websites for small businesses, plus my own one-page services site.
-Everything here is plain HTML, CSS and a little JavaScript: no build step, no
-dependencies, nothing to install. Open any file in a browser and it works.
+Four demo websites for small businesses, built to show what a client actually gets. Plain HTML, CSS and JavaScript — no build step, no install. Open any file by double-clicking it.
 
-**These are samples.** The three businesses are made up — they are demos built to
-show what a real site would look like, not past clients. The photos are
-free-licence Unsplash images.
+## What's here
 
-## What is in here
+| Path | What it is |
+|---|---|
+| `files/index.html` | My services and prices page |
+| `files/demos/index.html` | Hub page listing the four samples |
+| `files/demos/salon/` | Sample 1 — simple business site (₹12,000) |
+| `files/demos/coaching/` | Sample 2 — site with a working enquiry form (₹35,000) |
+| `files/demos/gym/` | Sample 3 — memberships with an online checkout (₹55,000) |
+| `files/demos/atelier/` | Sample 4 — premium, animation-led brand site |
 
-```
-files/
-  index.html              my services and prices page
-  demos/
-    index.html            the samples index ("three businesses, three levels")
-    salon/                Kaya Salon & Spa, Vashi          — ₹12,000 sample
-      index.html  services.html  visit.html  style.css
-    coaching/             Bright Minds Classes, Nerul      — ₹35,000 sample
-      index.html  batches.html  book.html    style.css
-    gym/                  Iron Yard Fitness, Kharghar      — ₹55,000 sample
-      index.html  plans.html  inside.html    style.css
-```
+Every sample is a three-page site sharing one stylesheet per folder: home, a detail page, and a page where the customer does something (visit, book, pay, enquire).
 
-Each sample is a small multi-page site that shares one stylesheet inside its
-folder, so all the pages look the same and stay easy to edit.
+All four businesses are invented. They are demos of the work, not client projects.
 
-- `salon/` — prices and a visit page; the booking buttons open WhatsApp with the
-  message already written.
-- `coaching/` — a batches-and-fees table, and a trial booking form that saves
-  every enquiry to a list beside it and can download the list as a CSV.
-- `gym/` — memberships with a demo checkout that produces a member ID and a
-  receipt.
+## Sample 4 — Sable & Stone
 
-The forms and the checkout are demos: the coaching list is stored in the
-browser, and no payment is taken anywhere. On a real build the list goes to a
-database and payments run through Razorpay.
+An architecture studio site, deliberately the most advanced of the four:
 
-## Viewing it
+- `index.html` — WebGL shader behind the headline, a 3D deck of rooms that turns as you scroll, hover-lit cards, a marquee strip.
+- `work.html` — a pinned horizontal project reel and a grid of cards that tilt toward the cursor.
+- `studio.html` — a timeline whose line fills as you scroll, team cards, fees, and a short section explaining how the page is built.
+- `app.js` — reveals via Motion, split-text headline via anime.js, pointer effects.
+- `shader.js` — the GLSL fragment shader (no library).
+- `scroll.js` — the 3D deck, horizontal rail, timeline beam and parallax.
+- `style.css`, `components.css`, `layout.css` — linked in that order.
 
-Locally, open `files/index.html` in a browser.
+The animation libraries load from a CDN at runtime. If they fail, or the visitor prefers reduced motion, the pages fall back to static, readable content.
 
-Online, publish the repository with GitHub Pages:
+## Notes on what is real vs simulated
 
-1. Settings → Pages
-2. Source: **Deploy from a branch**
-3. Branch **main**, folder **/ (root)**
-4. Save
+- The enquiry form in `demos/coaching/` stores submissions in the browser (localStorage) so the flow can be shown without a server.
+- The checkout in `demos/gym/` is a demo screen. On a live site it is replaced by Razorpay (UPI, cards, netbanking).
+- Photos are free-licence Unsplash images, linked from Unsplash's CDN rather than copied into this repo.
 
-The site then appears at
-`https://chiragisded.github.io/website-samples/files/index.html`, and the samples
-at `https://chiragisded.github.io/website-samples/files/demos/`.
+## Publishing it free with GitHub Pages
+
+1. Push this repo to GitHub.
+2. Repo → **Settings** → **Pages**.
+3. Source: **Deploy from a branch**, Branch: `main`, folder `/ (root)`.
+4. After a minute the samples appear at:
+   `https://<your-username>.github.io/<repo-name>/files/demos/`
+
+Send that link to businesses — it works on any phone.
 
 ## Editing
 
-All pages use the same small set of CSS custom properties at the top of each
-`style.css` (colours, fonts, spacing), so changing a colour in one place changes
-it across that whole sample. Text sits in the HTML — no templates, no build.
+Colours live in the `:root` block at the top of each sample's stylesheet. Each sample folder is self-contained, so duplicate a folder to start a new sample.
