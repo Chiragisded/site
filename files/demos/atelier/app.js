@@ -7,6 +7,7 @@
 
 import { initShader } from './shader.js';
 import { startScrollEngine } from './scroll.js';
+import { initObjects } from './objects.js';
 
 const reduceMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
 const narrowMQ = window.matchMedia('(max-width: 860px)');
@@ -34,6 +35,7 @@ async function initReveals() {
 
   if (motion && motion.inView && motion.animate && !reduce) {
     motion.inView('.reveal', (el) => {
+      el.classList.add('is-in');
       motion.animate(el, { opacity: [0, 1], y: [30, 0] }, {
         duration: 0.9,
         ease: [0.22, 1, 0.36, 1],
@@ -169,9 +171,77 @@ function initPointer() {
   }
 }
 
+/* ------------------------------------------- headline, word by word */
+function initWords() {
+  const targets = $$('[data-words]');
+  if (!targets.length) return;
+
+  targets.forEach((el) => {
+    const words = el.textContent.trim().split(/\s+/);
+    el.textContent = '';
+    words.forEach((word, i) => {
+      const mask = document.createElement('span');
+      mask.className = 'w';
+      const inner = document.createElement('span');
+      inner.className = 'wi';
+      inner.style.setProperty('--i', String(i));
+      inner.textContent = word;
+      mask.appendChild(inner);
+      el.appendChild(mask);
+      if (i < words.length - 1) el.appendChild(document.createTextNode(' '));
+    });
+  });
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    targets.forEach((el) => el.classList.add('is-in'));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-in');
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.15 });
+  targets.forEach((el) => io.observe(el));
+}
+
+/* ----------------------------------------------- sparks on the table */
+function initSparks() {
+  const host = $('#objects');
+  if (!host || reduce || !Element.prototype.animate) return;
+
+  host.addEventListener('pointerdown', (event) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    const rect = host.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    for (let i = 0; i < 7; i += 1) {
+      const angle = (i / 7) * Math.PI * 2 - Math.PI / 2;
+      const deg = (angle * 180) / Math.PI;
+      const spark = document.createElement('i');
+      spark.className = 'spark';
+      host.appendChild(spark);
+      const anim = spark.animate([
+        { transform: 'translate(' + x + 'px,' + y + 'px) rotate(' + deg + 'deg)', opacity: 1 },
+        {
+          transform: 'translate(' + (x + Math.cos(angle) * 26).toFixed(1) + 'px,' +
+            (y + Math.sin(angle) * 26).toFixed(1) + 'px) rotate(' + deg + 'deg) translateY(-14px)',
+          opacity: 0,
+        },
+      ], { duration: 540, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'forwards' });
+      anim.onfinish = () => spark.remove();
+    }
+  }, { passive: true });
+}
+
 /* ------------------------------------------------------ marquee repeat */
 function fillMarquees() {
   $$('.marquee-track').forEach((track) => {
+    // the markup already ships two groups; only top up if one is missing
+    if ($$('.marquee-group', track).length > 1) return;
     const group = $('.marquee-group', track);
     if (!group) return;
     const clone = group.cloneNode(true);
@@ -188,6 +258,17 @@ try {
   /* the CSS gradient under the canvas stays as the fallback */
 }
 
+try {
+  const ctaCanvas = $('#shaderCta');
+  if (ctaCanvas) initShader(ctaCanvas, { variant: 'aurora' });
+} catch (err) {}
+
+if ($('#objects')) {
+  try { initObjects($('#objects')).catch(() => {}); } catch (err) {}
+}
+
+try { initWords(); } catch (err) {}
+try { initSparks(); } catch (err) {}
 try { fillMarquees(); } catch (err) {}
 try { initPointer(); } catch (err) {}
 try { startScrollEngine(); } catch (err) {}

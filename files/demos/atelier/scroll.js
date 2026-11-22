@@ -65,11 +65,25 @@ function update() {
     state.cards.forEach((card, i) => {
       const d = i - position;
       const near = Math.abs(d);
-      const z = -d * (small ? 150 : 265);
-      const ty = d * rowGap;
-      const rx = d * (small ? 6 : 9);
+      let z, ty, rx, opacity;
+
+      if (d >= 0) {
+        // waiting behind the front card: a shallow stack in depth
+        z = -d * (small ? 150 : 265);
+        ty = d * rowGap;
+        rx = d * (small ? 6 : 9);
+        opacity = 1 - Math.min(d, 2) * 0.28;
+      } else {
+        // just stepped back: lifts away and clears out fast, so two
+        // captions are never legible on top of each other
+        const out = Math.min(1, -d);
+        z = -out * (small ? 40 : 70);
+        ty = -out * rowGap * 3.2;
+        rx = -out * 5;
+        opacity = Math.max(0, 1 - out * 3.2);
+      }
+
       const scale = 1 - Math.min(near, 2) * 0.015;
-      const opacity = d >= 0 ? 1 - Math.min(d, 2) * 0.28 : clamp(1 + d * 0.8);
 
       card.style.transform = 'translate3d(0,' + ty.toFixed(1) + 'px,' + z.toFixed(1) +
         'px) rotateX(' + rx.toFixed(2) + 'deg) scale(' + scale.toFixed(3) + ')';

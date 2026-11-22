@@ -22,21 +22,50 @@ const FRAG = [
   '  float t=uTime*0.055;',
   '  vec2 q=p*1.35+vec2(t*0.7,-t*0.32)+(uMouse-0.5)*0.22;',
   '  float f=fbm(q+fbm(q*1.8+vec2(t*0.4,-t*0.6)));',
-  '  vec3 deep=vec3(0.028,0.033,0.045);',
-  '  vec3 mid=vec3(0.075,0.115,0.185);',
+  '  vec3 deep=vec3(0.031,0.038,0.051);',
+  '  vec3 mid=vec3(0.095,0.165,0.300);',
   '  vec3 ice=vec3(0.487,0.780,0.910);',
   '  vec3 sand=vec3(0.847,0.765,0.647);',
-  '  vec3 col=mix(deep,mid,smoothstep(0.12,0.88,f));',
-  '  col=mix(col,ice,pow(smoothstep(0.46,1.0,f),2.0)*0.62);',
+  '  vec3 col=mix(deep,mid,smoothstep(0.06,0.92,f));',
+  '  col=mix(col,ice,pow(smoothstep(0.26,1.0,f),1.6)*0.86);',
   '  float warm=fbm(q*2.2-vec2(t*0.8,t*0.3));',
-  '  col=mix(col,sand,pow(smoothstep(0.56,1.0,warm),3.0)*0.30);',
-  '  col*=1.0-0.62*length(p*0.92);',
+  '  col=mix(col,sand,pow(smoothstep(0.46,1.0,warm),2.4)*0.38);',
+  '  col*=1.0-0.42*length(p*0.86);',
   '  col+=(hash(uv*uRes+uTime)-0.5)*0.030;',
   '  gl_FragColor=vec4(col,1.0);',
   '}',
 ].join('\n');
 
-export function initShader(canvas) {
+/* A second, quieter shader: slow silk bands for the closing band, so the
+   page has light at the top and a low glow at the bottom of the scroll. */
+const FRAG_AURORA = [
+  'precision highp float;',
+  'uniform vec2 uRes; uniform float uTime; uniform vec2 uMouse;',
+  'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123);}',
+  'float noise(vec2 p){',
+  '  vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);',
+  '  return mix(mix(hash(i),hash(i+vec2(1.0,0.0)),u.x),mix(hash(i+vec2(0.0,1.0)),hash(i+vec2(1.0,1.0)),u.x),u.y);',
+  '}',
+  'float fbm(vec2 p){float v=0.0,a=0.5;for(int i=0;i<4;i++){v+=a*noise(p);p*=2.07;a*=0.5;}return v;}',
+  'void main(){',
+  '  vec2 uv=gl_FragCoord.xy/uRes;',
+  '  vec2 p=(uv-0.5)*vec2(uRes.x/uRes.y,1.0);',
+  '  float t=uTime*0.05;',
+  '  float warp=fbm(vec2(p.x*1.1+t*0.5,uMouse.x*0.6)+vec2(t*0.3,uMouse.y*0.8));',
+  '  float band=sin(p.y*3.4+warp*2.4+t*1.1);',
+  '  float glow=smoothstep(0.10,1.0,band);',
+  '  vec3 col=vec3(0.024,0.031,0.042);',
+  '  col=mix(col,vec3(0.24,0.46,0.66),glow*0.40);',
+  '  col=mix(col,vec3(0.55,0.86,0.98),pow(glow,4.0)*0.28);',
+  '  col=mix(col,vec3(0.72,0.62,0.50),pow(smoothstep(0.55,1.0,fbm(p*1.7-t)),3.0)*0.16);',
+  '  col*=1.0-0.62*length(p*0.82);',
+  '  col+=(hash(uv*uRes+uTime)-0.5)*0.018;',
+  '  gl_FragColor=vec4(col,1.0);',
+  '}',
+].join('\n');
+
+export function initShader(canvas, options) {
+  const variant = (options && options.variant) || 'hero';
   const opts = { antialias: false, alpha: false, powerPreference: 'low-power' };
   const gl = canvas.getContext('webgl', opts) || canvas.getContext('experimental-webgl', opts);
   if (!gl) return;
@@ -49,7 +78,7 @@ export function initShader(canvas) {
   };
 
   const vs = compile(gl.VERTEX_SHADER, VERT);
-  const fs = compile(gl.FRAGMENT_SHADER, FRAG);
+  const fs = compile(gl.FRAGMENT_SHADER, variant === 'aurora' ? FRAG_AURORA : FRAG);
   if (!vs || !fs) return;
 
   const program = gl.createProgram();
