@@ -56,7 +56,8 @@ to{transform:translate3d(-50%,0,0)}
 .rail-card p{color:var(--muted);font-size:.88rem;margin:6px 0 0;max-width:30ch}
 .rail.is-flat .rail-viewport{position:static;height:auto;overflow:visible;display:block}
 .rail.is-flat .rail-track{overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:18px;transform:none !important;-webkit-overflow-scrolling:touch}
-.rail.is-flat .rail-card{flex-basis:76vw;scroll-snap-align:start}
+.rail.is-flat .rail-card{scroll-snap-align:start}
+@media (max-width:860px){.rail.is-flat .rail-card{flex-basis:76vw}}
 .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:clamp(16px,2.2vw,26px);perspective:1200px}
 .project{position:relative}
 .project-3d{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transform-style:preserve-3d;transition:transform .7s var(--ease);will-change:transform;}
@@ -78,3 +79,76 @@ to{transform:translate3d(-50%,0,0)}
 .timeline .mono{display:block;margin-bottom:8px;color:var(--ice)}
 .timeline h3{font-size:1.3rem;margin-bottom:.3em}
 .timeline p{color:var(--muted);font-size:.96rem;margin:0;max-width:48ch}
+/* without JS the scroll engine cannot measure anything: show every room
+   stacked and let the rail swipe, rather than cropping both */
+html:not(.has-js) .deck-stage{height:auto}
+html:not(.has-js) .deck-pin{position:static;height:auto;padding:34px 0}
+html:not(.has-js) .deck-3d{transform:none;width:min(560px,86vw);aspect-ratio:auto;max-height:none}
+html:not(.has-js) .plane{position:relative;inset:auto;opacity:1;transform:none;margin-bottom:18px}
+html:not(.has-js) .plane figure{height:auto}
+html:not(.has-js) .plane img{height:auto;aspect-ratio:3/4}
+html:not(.has-js) .deck-ui{position:static;padding:18px var(--edge) 0}
+html:not(.has-js) .rail-viewport{position:static;height:auto;overflow:visible;display:block;padding-top:10px}
+html:not(.has-js) .rail-track{overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:18px}
+html:not(.has-js) .rail-card{scroll-snap-align:start}
+@media (max-width:860px){html:not(.has-js) .rail-card{flex-basis:76vw}}
+/* ---- the object table ------------------------------------------------ */
+.objects{position:relative;padding:clamp(72px,10vw,132px) 0 0}
+.obj-stage{position:relative;height:260vh}
+.obj-pin{position:sticky;top:0;height:100svh;display:grid;place-items:center;overflow:hidden;isolation:isolate}
+#objCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .9s var(--ease);touch-action:pan-y;cursor:grab;}
+#objCanvas.is-grabbing{cursor:grabbing}
+.objects.is-3d #objCanvas{opacity:1}
+.obj-vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(58% 52% at 50% 44%,rgba(124,199,232,.14),transparent 72%),radial-gradient(40% 34% at 62% 66%,rgba(216,195,165,.10),transparent 70%),linear-gradient(to bottom,var(--void) 0%,rgba(7,8,10,0) 16%,rgba(7,8,10,0) 76%,var(--void) 100%);}
+.obj-vignette::after{content:"";position:absolute;left:50%;top:58%;width:min(74vw,720px);height:1px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(124,199,232,.30),rgba(255,255,255,.10),transparent);}
+.obj-fallback{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;width:min(880px,88vw);}
+.objects.is-3d .obj-fallback{display:none}
+.obj-card{display:grid;gap:10px;justify-items:center;text-align:center;padding:22px 18px 20px;border:1px solid var(--soft);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01));}
+.obj-card svg{width:88px;height:118px;color:rgba(236,234,228,.5)}
+.obj-card h3{font-size:1.05rem}
+.obj-card p{margin:0;font-size:.6rem;letter-spacing:.18em;color:var(--dim)}
+.obj-ui{position:absolute;inset:auto 0 clamp(20px,4vh,42px);z-index:3;display:grid;gap:14px;justify-items:center;padding:0 var(--edge);text-align:center;}
+.obj-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;padding:6px;border:1px solid var(--line);border-radius:999px;background:rgba(9,11,14,.62);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);}
+.obj-tab{appearance:none;border:0;background:transparent;color:var(--muted);font-family:var(--body);font-size:.8rem;font-weight:600;letter-spacing:.01em;padding:9px 17px;border-radius:999px;cursor:pointer;transition:background .35s var(--ease),color .3s;}
+.obj-tab:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.obj-tab.is-on{background:rgba(236,234,228,.94);color:#0a0b0d}
+.obj-cap{display:grid;gap:5px;justify-items:center;max-width:48ch;transition:opacity .2s var(--ease),transform .2s var(--ease);}
+.obj-cap.is-swap{opacity:0;transform:translateY(7px)}
+.obj-cap h3{font-size:clamp(1.32rem,2.4vw,1.85rem)}
+.obj-cap p{margin:0;color:var(--muted);font-size:.9rem}
+.obj-cap .obj-shine{color:transparent;background:linear-gradient(100deg,rgba(236,234,228,.34) 18%,var(--ice) 40%,#fff 50%,rgba(236,234,228,.34) 72%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;animation:shine 6s linear infinite;}
+@keyframes shine{from{background-position:140% 0}
+to{background-position:-60% 0}
+}
+.obj-hint{color:var(--dim);font-size:.58rem;letter-spacing:.2em;margin:0}
+.obj-mix{padding-bottom:clamp(60px,8vw,110px)}
+.obj-mix h3{font-size:clamp(1.15rem,2vw,1.45rem);margin:.35em 0 1.3em;max-width:34ch}
+.mix{list-style:none;margin:0;padding:0;display:grid;gap:13px;max-width:min(640px,100%)}
+.mix li{display:grid;grid-template-columns:clamp(104px,16vw,160px) minmax(0,1fr) 44px;gap:16px;align-items:center}
+.mix li>span:first-child{color:var(--muted);font-size:.86rem}
+.mix-track{position:relative;height:2px;background:var(--soft);border-radius:2px;overflow:hidden}
+.mix-track i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--ice),var(--sand));transition:width 1.2s var(--ease);}
+.obj-mix.is-in .mix-track i{width:var(--w)}
+.mix b{font-family:var(--mono);font-weight:400;font-size:.64rem;color:var(--ice);text-align:right}
+.spark{position:absolute;left:0;top:0;width:1px;height:16px;background:var(--ice);pointer-events:none;z-index:6;opacity:0;box-shadow:0 0 8px rgba(124,199,232,.7)}
+/* word-by-word headline rise */
+[data-words] .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.06em}
+[data-words] .wi{display:inline-block;transform:translateY(112%);transition:transform .95s var(--ease);transition-delay:calc(var(--i,0) * 42ms);}
+[data-words].is-in .wi{transform:none}
+.cta-band canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;opacity:.85;pointer-events:none}
+.cta-band .wrap{position:relative;z-index:1}
+html:not(.has-js) .obj-stage{height:auto}
+html:not(.has-js) .obj-pin{position:static;height:auto;padding:38px 0 30px}
+html:not(.has-js) .obj-vignette{display:none}
+html:not(.has-js) .obj-ui{display:none}
+html:not(.has-js) .mix-track i{width:var(--w)}
+html:not(.has-js) .obj-cap p{color:var(--muted)}
+@media (max-width:860px){.obj-stage{height:230vh}
+.obj-fallback{grid-template-columns:1fr;width:min(420px,86vw);gap:8px}
+.obj-card{grid-template-columns:60px 1fr;justify-items:start;text-align:left;align-items:center;padding:14px 16px}
+.obj-card svg{width:52px;height:72px;grid-row:span 2}
+.obj-tab{font-size:.74rem;padding:8px 13px}
+}
+@media (prefers-reduced-motion:reduce){[data-words] .wi{transform:none}
+.obj-cap .obj-shine{animation:none;color:var(--ice);background:none;-webkit-text-fill-color:currentColor}
+}
