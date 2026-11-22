@@ -21,12 +21,13 @@ All four businesses are invented. They are demos of the work, not client project
 
 An architecture studio site, deliberately the most advanced of the four:
 
-- `index.html` — WebGL shader behind the headline, a 3D deck of rooms that turns as you scroll, hover-lit cards, a marquee strip.
+- `index.html` — WebGL shader behind the headline, a 3D deck of rooms that turns as you scroll, a 3D table of the studio's own objects you can spin with a drag, hover-lit cards, a marquee strip.
 - `work.html` — a pinned horizontal project reel and a grid of cards that tilt toward the cursor.
 - `studio.html` — a timeline whose line fills as you scroll, team cards, fees, and a short section explaining how the page is built.
 - `app.js` — reveals via Motion, split-text headline via anime.js, pointer effects.
 - `shader.js` — the GLSL fragment shader (no library).
 - `scroll.js` — the 3D deck, horizontal rail, timeline beam and parallax.
+- `objects.js` — the object table: three pieces modelled in three.js (fetched from a CDN, never bundled), turned by scroll and by the pointer. With no WebGL or no network the section keeps three line drawings instead.
 - `style.css`, `components.css`, `layout.css` — linked in that order.
 
 The animation libraries load from a CDN at runtime. If they fail, or the visitor prefers reduced motion, the pages fall back to static, readable content.
