@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Websites for small businesses — Chirag</title>
 <!--
-  ─────────────────────────────────────────────────────────────
+  ────────────────────────────────────────────────────
   NOTHING LEFT TO CHANGE — the page is ready to send.
   All buttons open WhatsApp on +91 90049 10077.
   When you get a proper email address, add it next to the phone
@@ -17,7 +17,7 @@
     Payments/shop     From ₹55,000
   If you change one, change it in TWO places: the card near the
   top and the table near the bottom.
-  ─────────────────────────────────────────────────────────────
+  ────────────────────────────────────────────────────
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@
     --text:#eceae4;
     --muted:#9d9f98;
     --accent:#c8f24e;
-    --radius:18px;
+    --radius:4px;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -44,6 +44,13 @@
     -webkit-font-smoothing:antialiased;
   }
   a{color:inherit}
+  ::selection{background:rgba(200,242,78,.24);color:#0d0f0d}
+  :where(a,button,summary,input,textarea,select):focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  main{counter-reset:sec}
+  section{counter-increment:sec}
+  .kicker::before{content:counter(sec,decimal-leading-zero) " — ";color:var(--muted)}
+  .about .kicker::before{content:none}
+  p{text-wrap:pretty}
   .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
   .serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400;letter-spacing:-.01em}
 
@@ -56,13 +63,13 @@
   }
   .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;letter-spacing:.02em;text-decoration:none}
-  .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px 2px rgba(200,242,78,.55)}
+  .dot{width:8px;height:8px;border-radius:2px;background:var(--accent)}
   .navlinks{display:flex;gap:26px;font-size:14.5px;color:var(--muted)}
   .navlinks a{text-decoration:none;transition:color .2s}
   .navlinks a:hover{color:var(--text)}
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    padding:13px 22px;border-radius:999px;font-size:15px;font-weight:500;
+    padding:13px 22px;border-radius:3px;font-size:15px;font-weight:500;
     text-decoration:none;border:1px solid transparent;transition:transform .18s ease, background .2s, color .2s, border-color .2s;
     white-space:nowrap;
   }
@@ -83,12 +90,13 @@
   .eyebrow{
     display:inline-flex;align-items:center;gap:9px;
     font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
-    border:1px solid var(--line);border-radius:999px;padding:7px 14px;margin-bottom:30px;
+    border:1px solid var(--line);border-radius:2px;padding:7px 14px;margin-bottom:30px;
   }
   h1{
-    font-size:clamp(2.5rem,6.2vw,4.6rem);
-    line-height:1.03;letter-spacing:-.035em;font-weight:500;
-    margin:0 0 26px;max-width:17ch;
+    font-family:'Instrument Serif',Georgia,serif;font-weight:400;
+    font-size:clamp(2.9rem,6.6vw,5rem);
+    line-height:1;letter-spacing:-.018em;
+    margin:0 0 24px;max-width:16ch;
   }
   h1 em{font-style:italic;color:var(--accent)}
   .lede{font-size:clamp(1.02rem,1.6vw,1.2rem);color:#c3c4bd;max-width:56ch;margin:0 0 38px}
@@ -107,13 +115,14 @@
   section{padding:88px 0}
   .sec-head{max-width:640px;margin-bottom:52px}
   .kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
-  h2{font-size:clamp(1.85rem,3.6vw,2.7rem);line-height:1.1;letter-spacing:-.03em;font-weight:500;margin:0 0 16px}
+  h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(2rem,3.9vw,3.05rem);line-height:1.04;letter-spacing:-.012em;font-weight:400;margin:0 0 16px}
   .sec-head p{color:var(--muted);margin:0;font-size:16.5px}
 
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  /* one hairline-divided block, not three floating cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;border:1px solid var(--line);border-radius:var(--radius);background:var(--line);overflow:hidden}
   .card{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:30px 28px;display:flex;flex-direction:column;
+    background:var(--ink);
+    padding:34px 30px;display:flex;flex-direction:column;
   }
   .card h3{font-size:19.5px;font-weight:600;letter-spacing:-.01em;margin:0 0 6px}
   .card .tag{font-size:12.5px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
@@ -136,7 +145,7 @@
   /* about */
   .about{
     display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;
-    border:1px solid var(--line);border-radius:24px;padding:46px;background:var(--card);
+    border:1px solid var(--line);border-radius:var(--radius);padding:46px;background:transparent;
   }
   .about h2{margin-bottom:18px}
   .about p{color:#c6c7c0;margin:0 0 14px;font-size:16px}
@@ -177,10 +186,9 @@
   /* contact */
   .contact{
     position:relative;overflow:hidden;text-align:center;
-    border:1px solid var(--line);border-radius:26px;padding:74px 32px;
-    background:
-      radial-gradient(70% 120% at 50% 0%, rgba(200,242,78,.13), transparent 65%),
-      var(--card);
+    border:1px solid var(--line);border-radius:var(--radius);padding:68px 32px;
+    background:var(--card);
+    box-shadow:inset 0 1px 0 rgba(200,242,78,.22);
   }
   .contact h2{max-width:20ch;margin:0 auto 18px}
   .contact p{color:var(--muted);margin:0 auto 34px;max-width:52ch}
