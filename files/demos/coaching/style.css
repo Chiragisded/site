@@ -319,7 +319,7 @@ table.fees .fee{
 
 @media (max-width:560px){
   body{font-size:16px}
-  .wrap{padding:0 20px}
+  .wrap{padding-left:20px;padding-right:20px}
   h1{font-size:clamp(2.1rem,9vw,2.9rem)}
   .nav-links{gap:14px}
   .nav-links a:last-child{padding:7px 11px}
