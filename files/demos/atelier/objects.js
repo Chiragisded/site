@@ -91,7 +91,9 @@ function pendant(THREE) {
 
 function stool(THREE) {
   const g = new THREE.Group();
-  const teak = new THREE.MeshStandardMaterial({ color: 0x8a5733, roughness: 0.58, metalness: 0.04 });
+  // teak sits against a black stage, so it needs a warm mid-tone or it reads
+  // as a black silhouette rather than wood
+  const teak = new THREE.MeshStandardMaterial({ color: 0xb37a48, roughness: 0.54, metalness: 0.04 });
 
   const seat = new THREE.Mesh(new THREE.CylinderGeometry(0.500, 0.500, 0.105, 96), teak);
   seat.position.y = 0.860;
@@ -99,7 +101,7 @@ function stool(THREE) {
 
   const edge = new THREE.Mesh(
     new THREE.TorusGeometry(0.500, 0.014, 10, 96),
-    new THREE.MeshStandardMaterial({ color: 0x6d4326, roughness: 0.5, metalness: 0.06 })
+    new THREE.MeshStandardMaterial({ color: 0x8a5a32, roughness: 0.5, metalness: 0.06 })
   );
   edge.rotation.x = Math.PI / 2;
   edge.position.y = 0.860;
@@ -116,7 +118,7 @@ function stool(THREE) {
 
   const brace = new THREE.Mesh(
     new THREE.TorusGeometry(0.256, 0.011, 8, 96),
-    new THREE.MeshStandardMaterial({ color: 0x6d4326, roughness: 0.55, metalness: 0.05 })
+    new THREE.MeshStandardMaterial({ color: 0x8a5a32, roughness: 0.55, metalness: 0.05 })
   );
   brace.rotation.x = Math.PI / 2;
   brace.position.y = 0.300;
