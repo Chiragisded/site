@@ -59,6 +59,8 @@ code{font-family:var(--mono);font-size:.88em;color:var(--sand)}
 .team{grid-template-columns:1fr}
 .deck-3d{width:88vw;max-height:64svh}
 .deck-ui{bottom:14px}
+.obj-stage{height:200vh}
+.obj-hint{display:none}
 .foot{grid-template-columns:1fr}
 .sample-pill{left:14px;right:14px;max-width:none;text-align:center}
 .pricerow .amt{font-size:.78rem}
@@ -71,7 +73,16 @@ code{font-family:var(--mono);font-size:.88em;color:var(--sand)}
 .hero-meta>div{opacity:1}
 .marquee-track{animation:none}
 .deck-stage{height:auto}
-.deck-pin{position:static;height:auto;padding:40px 0}
-.deck-3d{transform:none !important}
+.deck-pin{position:static;height:auto;padding:40px 0;overflow:visible}
+.deck-ui{position:static;padding:18px var(--edge) 0}
+.obj-stage{height:auto}
+.obj-pin{position:static;height:auto;overflow:visible;padding:26px 0}
+#objCanvas{position:relative;height:min(62svh,520px)}
+.obj-ui{position:relative;z-index:3;padding:22px var(--edge) 0}
+.obj-stage{height:auto}
+.obj-vignette{display:none}
+.deck-3d{transform:none !important;height:auto;aspect-ratio:auto;max-height:none}
 .plane{position:relative;inset:auto;opacity:1 !important;transform:none !important;margin-bottom:16px;visibility:visible !important}
+.plane figure{height:auto}
+.plane img{height:auto;aspect-ratio:3/4}
 }
