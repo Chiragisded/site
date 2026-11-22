@@ -62,12 +62,13 @@ function pendant(THREE) {
   collar.position.y = 1.366;
   g.add(collar);
 
-  const cord = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.007, 0.007, 0.620, 8),
-    new THREE.MeshStandardMaterial({ color: 0x1a1917, roughness: 0.9 })
-  );
+  const cordMat = new THREE.MeshStandardMaterial({ color: 0x1a1917, roughness: 0.9 });
+  const cord = new THREE.Mesh(new THREE.CylinderGeometry(0.007, 0.007, 0.620, 8), cordMat);
   cord.position.y = 1.700;
   g.add(cord);
+  // the top of this cord and its material, so the table can carry it on up
+  // past the top of the canvas instead of leaving it hanging in mid-air
+  g.userData.cord = { top: 2.010, radius: 0.007, material: cordMat };
 
   const bulb = new THREE.Mesh(
     new THREE.SphereGeometry(0.060, 28, 20),
@@ -265,6 +266,22 @@ export async function initObjects(section) {
     piece.position.z = -centre.z * k;
     piece.position.y = -box.min.y * k + (piece.userData.lift || 0);
     outer.add(piece);
+
+    // a pendant hangs from a ceiling outside the frame: run its cord off the
+    // top of the canvas rather than stopping it inside the picture
+    const cord = piece.userData.cord;
+    if (cord) {
+      const from = piece.position.y + cord.top * k;
+      const reach = 8;
+      const length = Math.max(0.5, reach - from);
+      const extension = new THREE.Mesh(
+        new THREE.CylinderGeometry(cord.radius * k, cord.radius * k, length, 8),
+        cord.material
+      );
+      extension.position.y = from + length / 2;
+      outer.add(extension);
+    }
+
     turntable.add(outer);
     return outer;
   });
