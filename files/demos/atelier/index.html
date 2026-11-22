@@ -125,10 +125,69 @@
     </div>
   </section>
 
+  <section class="objects" id="objects" aria-labelledby="objects-title">
+    <div class="wrap sec-head">
+      <p class="kicker">03 — The objects</p>
+      <h2 id="objects-title" data-words>Everything we draw, we build once at full size first.</h2>
+      <p>A chair, a light, a pot. Made by the same three people who draw the rooms, so a detail pencilled on a sheet is already a thing that exists. Turn them over.</p>
+    </div>
+
+    <div class="obj-stage" id="objStage">
+      <div class="obj-pin">
+        <div class="obj-vignette" aria-hidden="true"></div>
+        <canvas id="objCanvas" role="img" aria-label="Three studio pieces drawn in 3D: a stoneware vessel, a brass pendant light and a teak stool. The buttons below choose one."></canvas>
+
+        <div class="obj-fallback">
+          <article class="obj-card">
+            <svg viewBox="0 0 120 160" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M50 34h20"/><ellipse cx="60" cy="34" rx="10" ry="3"/><path d="M50 34c-2 10-14 16-18 32-5 20 4 40 30 40s35-20 30-40c-4-16-16-22-18-32"/></svg>
+            <h3>Vessel 01</h3>
+            <p class="mono">Stoneware · 240 mm</p>
+          </article>
+          <article class="obj-card">
+            <svg viewBox="0 0 120 160" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M60 14v48"/><path d="M30 96l10-34h40l10 34z"/><ellipse cx="60" cy="96" rx="30" ry="5"/><circle cx="60" cy="104" r="6"/></svg>
+            <h3>Pendant 04</h3>
+            <p class="mono">Brass · 900 mm drop</p>
+          </article>
+          <article class="obj-card">
+            <svg viewBox="0 0 120 160" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="60" cy="62" rx="34" ry="9"/><path d="M26 62l10 62M94 62l-10 62M60 71v53"/><path d="M33 108h54"/></svg>
+            <h3>Stool 02</h3>
+            <p class="mono">Teak · 460 mm</p>
+          </article>
+        </div>
+
+        <div class="obj-ui">
+          <div class="obj-tabs" role="group" aria-label="Choose an object">
+            <button type="button" class="obj-tab is-on" data-obj="0" aria-pressed="true">Vessel 01</button>
+            <button type="button" class="obj-tab" data-obj="1" aria-pressed="false">Pendant 04</button>
+            <button type="button" class="obj-tab" data-obj="2" aria-pressed="false">Stool 02</button>
+          </div>
+          <div class="obj-cap" id="objCap">
+            <p class="obj-shine mono">Spun by hand · drawn at 1:1</p>
+            <h3 id="objName">Vessel 01</h3>
+            <p id="objMeta">Stoneware, 240 mm — thrown in Vasai, one glaze line at the lip.</p>
+          </div>
+          <p class="obj-hint mono">Drag to turn · scroll to rotate</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap obj-mix reveal" id="objMix">
+      <p class="kicker">Material mix</p>
+      <h3>Courtyard House, Alibaug — what the walls are actually made of</h3>
+      <ul class="mix">
+        <li><span>Lime plaster</span><span class="mix-track"><i style="--w:42%"></i></span><b>42%</b></li>
+        <li><span>Teak</span><span class="mix-track"><i style="--w:26%"></i></span><b>26%</b></li>
+        <li><span>Laterite</span><span class="mix-track"><i style="--w:18%"></i></span><b>18%</b></li>
+        <li><span>Brass</span><span class="mix-track"><i style="--w:8%"></i></span><b>8%</b></li>
+        <li><span>Terrazzo</span><span class="mix-track"><i style="--w:6%"></i></span><b>6%</b></li>
+      </ul>
+    </div>
+  </section>
+
   <section class="sec" aria-labelledby="how-title">
     <div class="wrap">
       <div class="sec-head">
-        <p class="kicker">03 — How we work</p>
+        <p class="kicker">04 — How we work</p>
         <h2 id="how-title">Small studio. Short chain of command.</h2>
         <p>No account managers, no hand-off pack. The person who draws a detail checks it on site, and takes your call about it.</p>
       </div>
@@ -186,10 +245,14 @@
       <div class="marquee-group">
         <span>Lime plaster</span><i>◆</i><span>Teak</span><i>◆</i><span>Laterite</span><i>◆</i><span>Brass</span><i>◆</i><span>Terrazzo</span>
       </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span>Lime plaster</span><i>◆</i><span>Teak</span><i>◆</i><span>Laterite</span><i>◆</i><span>Brass</span><i>◆</i><span>Terrazzo</span>
+      </div>
     </div>
   </div>
 
   <section class="cta-band" aria-labelledby="cta-title">
+    <canvas id="shaderCta" aria-hidden="true"></canvas>
     <div class="wrap">
       <p class="kicker">Next</p>
       <h2 id="cta-title">Tell us about the room you keep rearranging in your head.</h2>
