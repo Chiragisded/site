@@ -4,15 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sample websites — Chirag, web developer</title>
+<meta name="description" content="Four sample business websites with what each one fixes, what the site handles, and what an owner would need to provide to go live.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <style>
-  :root{--ink:#0d0f0d;--card:#151814;--line:rgba(255,255,255,.09);--text:#eceae4;--muted:#9d9f98;--accent:#c8f24e}
+  :root{--ink:#0d0f0d;--card:#151814;--line:rgba(255,255,255,.09);--text:#eceae4;--muted:#9d9f98;--muted2:#8e908a;--accent:#c8f24e}
   *{box-sizing:border-box}
   body{margin:0;background:var(--ink);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
   a{color:inherit}
   ::selection{background:rgba(200,242,78,.24);color:#0d0f0d}
   :where(a,button,summary,input,textarea,select):focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
@@ -20,29 +21,42 @@
   header{border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:70px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;text-decoration:none;letter-spacing:.02em}
-  .dot{width:8px;height:8px;border-radius:2px;background:var(--accent)}
+  .dot{width:8px;height:8px;border-radius:2px;background:var(--accent);flex:0 0 auto}
   .btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 20px;border-radius:3px;font-size:14px;font-weight:500;text-decoration:none;border:1px solid transparent}
   .btn-accent{background:var(--accent);color:#101405}
   .btn-ghost{border-color:rgba(255,255,255,.18);color:var(--text)}
   .nav .btn{padding:9px 16px;font-size:13.5px}
-  .hero{padding:80px 0 56px}
+  .hero{padding-top:80px;padding-bottom:56px}
   .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:2px;padding:7px 14px;margin-bottom:28px}
   h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(2.7rem,5.8vw,4.4rem);line-height:1;letter-spacing:-.018em;margin:0 0 22px;max-width:18ch}
   h1 em{font-style:italic;color:var(--accent)}
-  .lede{color:#c3c4bd;max-width:56ch;margin:0 0 30px;font-size:17.5px}
+  .lede{color:#c3c4bd;max-width:60ch;margin:0 0 30px;font-size:17.5px}
   .cta-row{display:flex;flex-wrap:wrap;gap:12px}
   section{padding:0 0 80px}
   .kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
-  h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(1.8rem,3.3vw,2.5rem);line-height:1.04;letter-spacing:-.012em;font-weight:400;margin:0 0 32px}
-  /* the samples are a list, not a stack of cards */
-  .samples{display:grid;border-top:1px solid var(--line)}
-  .sample{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;border-bottom:1px solid var(--line);padding:30px 4px;text-decoration:none;transition:background .25s}
-  .sample:hover{background:rgba(255,255,255,.022)}
+  h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(1.8rem,3.3vw,2.5rem);line-height:1.04;letter-spacing:-.012em;font-weight:400;margin:0 0 16px}
+  .section-lede{color:var(--muted);max-width:62ch;margin:0 0 34px;font-size:15.5px}
+
+  .samples{display:grid;gap:18px}
+  .sample{border:1px solid var(--line);background:var(--card);padding:30px}
+  .sample-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:start;padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:24px}
   .sample .type{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
-  .sample h3{font-size:21px;font-weight:500;letter-spacing:-.015em;margin:0 0 8px}
-  .sample p{color:var(--muted);font-size:15px;margin:0;max-width:62ch}
-  .sample .tags{margin-top:14px;font-size:13px;color:#8e908a}
-  .sample .go{font-size:14px;font-weight:500;color:var(--accent);white-space:nowrap;border:1px solid rgba(200,242,78,.35);border-radius:3px;padding:10px 18px}
+  .sample h3{font-size:24px;font-weight:500;letter-spacing:-.02em;margin:0 0 10px;line-height:1.15}
+  .sample h3 a{text-decoration:none}
+  .sample h3 a:hover{text-decoration:underline;text-decoration-color:rgba(200,242,78,.45);text-underline-offset:4px}
+  .sample .summary{color:#c3c4bd;font-size:15px;margin:0;max-width:66ch}
+  .sample .go{font-size:14px;font-weight:500;color:var(--accent);white-space:nowrap;border:1px solid rgba(200,242,78,.35);border-radius:3px;padding:10px 18px;text-decoration:none;align-self:start}
+  .sample .go:hover{background:rgba(200,242,78,.08)}
+
+  .proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+  .proof-block{min-width:0}
+  .proof-block h4{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted2);margin:0 0 10px;font-weight:600}
+  .proof-block p,.proof-block li{font-size:14.5px;color:#b8bab2;line-height:1.65}
+  .proof-block p{margin:0}
+  .proof-block ul{margin:0;padding-left:18px}
+  .proof-block li+li{margin-top:6px}
+  .proof-block li::marker{color:var(--accent)}
+
   .note{border:1px solid var(--line);border-radius:4px;padding:28px 30px;background:var(--card);color:var(--muted);font-size:15px}
   .note b{color:var(--text);font-weight:500}
   .contact{border:1px solid var(--line);border-radius:4px;padding:48px 32px;text-align:center;background:var(--card);box-shadow:inset 0 1px 0 rgba(200,242,78,.22)}
@@ -51,11 +65,14 @@
   .contact .btn{margin:0 5px}
   footer{border-top:1px solid var(--line);padding:28px 0;font-size:13.5px;color:var(--muted)}
   .foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  @media (max-width:920px){.proof{grid-template-columns:1fr;gap:20px}}
   @media (max-width:700px){
-    .sample{grid-template-columns:1fr;gap:18px;padding:26px 4px}
+    .sample{padding:24px}
+    .sample-head{grid-template-columns:1fr;gap:16px}
     .sample .go{justify-self:start}
     .contact .btn{width:100%;margin:0 0 10px}
   }
+  @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation-duration:.01ms !important}}
 </style>
 </head>
 <body>
@@ -71,11 +88,11 @@
 
   <div class="wrap hero">
     <div class="eyebrow"><span class="dot"></span>Four working samples · Mumbai &amp; Navi Mumbai</div>
-    <h1>Sample sites I've built. <em>Click through them.</em></h1>
+    <h1>Sample sites, with the <em>thinking behind them.</em></h1>
     <p class="lede">
-      Demo businesses I made to show exactly what you'd get — one simple site, one with a booking system, one where
-      customers pay online, and one at the top end with 3D and animation built in. Each is a proper multi-page site.
-      Open them on your phone, that's how most of your customers will see it.
+      Each demo below is a made-up business, but the work is real: the layout, the copy structure, the mobile behaviour,
+      and the customer actions it’s built to handle. Open them on your phone — then look at what each one fixes, what
+      the site handles, and what you’d need to provide to make it yours.
     </p>
     <div class="cta-row">
       <a class="btn btn-accent" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20saw%20your%20sample%20sites%20and%20want%20one%20for%20my%20business">Message me on WhatsApp</a>
@@ -86,48 +103,143 @@
   <section>
     <div class="wrap">
       <p class="kicker">The samples</p>
-      <h2>Four businesses, four levels.</h2>
+      <h2>Four businesses, four kinds of proof.</h2>
+      <p class="section-lede">Every card shows the business problem the site is built around, the actions it handles, and the inputs an owner would hand over before a live version goes up.</p>
 
       <div class="samples">
-        <a class="sample" href="salon/index.html">
-          <div>
-            <p class="type">Package 1 — from ₹12,000</p>
-            <h3>Kaya Salon &amp; Spa, Vashi</h3>
-            <p>A three-page business site: home, the full price list, and a visit page with hours, directions and photos. Every booking button opens WhatsApp with the message already typed.</p>
-            <p class="tags">3 pages — home, prices, visit · WhatsApp booking · Works on any phone</p>
-          </div>
-          <span class="go">Open sample</span>
-        </a>
 
-        <a class="sample" href="coaching/index.html">
-          <div>
-            <p class="type">Package 2 — from ₹35,000</p>
-            <h3>Bright Minds Classes, Nerul</h3>
-            <p>Same three pages, plus a working enquiry form on its own page. Every submission is saved, listed for the staff, and can be downloaded as a spreadsheet. Fill the form and watch it appear beside it.</p>
-            <p class="tags">3 pages — home, batches, book · Enquiry form · Staff list · CSV download</p>
+        <article class="sample">
+          <div class="sample-head">
+            <div>
+              <p class="type">Package 1 — from ₹12,000</p>
+              <h3><a href="salon/index.html">Kaya Salon &amp; Spa, Vashi</a></h3>
+              <p class="summary">A three-page neighbourhood salon site built to make prices, timings and booking obvious before a customer has to call.</p>
+            </div>
+            <a class="go" href="salon/index.html">Open sample</a>
           </div>
-          <span class="go">Open sample</span>
-        </a>
+          <div class="proof">
+            <div class="proof-block">
+              <h4>What this fixes</h4>
+              <p>Customers often call just to ask for prices, hours, or whether Saturday is free. This layout puts the answers up front so WhatsApp messages start with intent, not basic questions.</p>
+            </div>
+            <div class="proof-block">
+              <h4>What the site handles</h4>
+              <ul>
+                <li>Home, full price list, and visit page with hours, address and photos.</li>
+                <li>WhatsApp booking buttons with the message already typed.</li>
+                <li>Mobile-first reading, clear service/pricing scan, and fast static pages.</li>
+              </ul>
+            </div>
+            <div class="proof-block">
+              <h4>What you’d provide</h4>
+              <ul>
+                <li>Service list, prices, and any packages or booking rules.</li>
+                <li>Address, opening hours, WhatsApp number, and Google Maps link.</li>
+                <li>Your own photos, logo/name, and the tone you want the salon to have.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
 
-        <a class="sample" href="gym/index.html">
-          <div>
-            <p class="type">Package 3 — from ₹55,000</p>
-            <h3>Iron Yard Fitness, Kharghar</h3>
-            <p>Home, a page for memberships and a page for the gym itself. Pick a plan and the checkout opens: pay by UPI or card, then get a member ID and receipt. The payment step is a demo here — on your site it runs through Razorpay for real money.</p>
-            <p class="tags">3 pages — home, memberships, the gym · Online checkout · Member records</p>
+        <article class="sample">
+          <div class="sample-head">
+            <div>
+              <p class="type">Package 2 — from ₹35,000</p>
+              <h3><a href="coaching/index.html">Bright Minds Classes, Nerul</a></h3>
+              <p class="summary">A coaching institute site that turns batch interest into a saved enquiry, instead of leaving parents to chase details over calls and DMs.</p>
+            </div>
+            <a class="go" href="coaching/index.html">Open sample</a>
           </div>
-          <span class="go">Open sample</span>
-        </a>
+          <div class="proof">
+            <div class="proof-block">
+              <h4>What this fixes</h4>
+              <p>Parents want batch times, fees and the next step in one place. Staff need enquiries captured neatly, not buried in messages. The site makes the offer clear and the enquiry trackable.</p>
+            </div>
+            <div class="proof-block">
+              <h4>What the site handles</h4>
+              <ul>
+                <li>Home, batches/fees page, and a dedicated booking/enquiry page.</li>
+                <li>A working enquiry form; in this demo, submissions are saved, listed for staff, and downloadable as CSV.</li>
+                <li>Clear fee/batch presentation so parents can compare before contacting you.</li>
+              </ul>
+            </div>
+            <div class="proof-block">
+              <h4>What you’d provide</h4>
+              <ul>
+                <li>Subjects, batch timings, fees, and admission/seat details.</li>
+                <li>Faculty or institute details, location, and contact number.</li>
+                <li>The questions you want every enquiry to answer before a callback.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
 
-        <a class="sample" href="atelier/index.html">
-          <div>
-            <p class="type">Package 4 — premium / brand site</p>
-            <h3>Sable &amp; Stone, Bandra West</h3>
-            <p>A three-page studio site where the design is the pitch: animated shaders behind the headline and the closing band, project cards that turn in 3D as you scroll, a side-scrolling project reel, and a table of the studio's objects — a pot, a lamp, a stool — drawn as real 3D you can spin with your finger.</p>
-            <p class="tags">3 pages — home, work, studio · Animated shaders · 3D scroll · 3D product objects · Premium components</p>
+        <article class="sample">
+          <div class="sample-head">
+            <div>
+              <p class="type">Package 3 — from ₹55,000</p>
+              <h3><a href="gym/index.html">Iron Yard Fitness, Kharghar</a></h3>
+              <p class="summary">A gym site that compares plans clearly and walks a new member through an online joining flow, with the payment step shown as a demo.</p>
+            </div>
+            <a class="go" href="gym/index.html">Open sample</a>
           </div>
-          <span class="go">Open sample</span>
-        </a>
+          <div class="proof">
+            <div class="proof-block">
+              <h4>What this fixes</h4>
+              <p>Gyms lose people when plans are confusing or joining feels like a conversation that has to happen later. This makes the offer comparable and the next step immediate.</p>
+            </div>
+            <div class="proof-block">
+              <h4>What the site handles</h4>
+              <ul>
+                <li>Home, memberships page, and a gym/details page with hours and location.</li>
+                <li>Plan comparison with a checkout demo: pick a plan, enter details, get a member ID/receipt.</li>
+                <li>In a live build, the payment step runs through Razorpay into your account.</li>
+              </ul>
+            </div>
+            <div class="proof-block">
+              <h4>What you’d provide</h4>
+              <ul>
+                <li>Plan names, prices, inclusions, freeze/cancel rules, and offers.</li>
+                <li>Gym photos, timings, address, trainers/facilities you want highlighted.</li>
+                <li>Your Razorpay account details and the member info you need at sign-up.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="sample">
+          <div class="sample-head">
+            <div>
+              <p class="type">Package 4 — premium / brand site</p>
+              <h3><a href="atelier/index.html">Sable &amp; Stone, Bandra West</a></h3>
+              <p class="summary">A premium studio site where the visual craft carries the brand, while the work, objects and studio story stay easy to explore.</p>
+            </div>
+            <a class="go" href="atelier/index.html">Open sample</a>
+          </div>
+          <div class="proof">
+            <div class="proof-block">
+              <h4>What this fixes</h4>
+              <p>High-end brands lose their edge when their website feels generic. This sample shows how a site can feel distinctive without making projects, services, or contact hard to find.</p>
+            </div>
+            <div class="proof-block">
+              <h4>What the site handles</h4>
+              <ul>
+                <li>Multi-page studio story: home, work, and studio pages.</li>
+                <li>Premium visual system: animated shaders, 3D scroll/project moments, and interactive 3D objects.</li>
+                <li>Clear project presentation and contact path beneath the visual layer.</li>
+              </ul>
+            </div>
+            <div class="proof-block">
+              <h4>What you’d provide</h4>
+              <ul>
+                <li>Brand story, positioning, services, and the tone the site should carry.</li>
+                <li>Project photos/case studies, product/object images, and credits where needed.</li>
+                <li>Contact details, inquiry expectations, and any press or client logos you can use.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -136,12 +248,12 @@
     <div class="wrap">
       <div class="note">
         <b>Being straight with you:</b> these four businesses are made up — samples I built myself, not clients.
-        What's real is the work: the layout, the photos, the phone-friendly design, the forms and the checkout flow.
+        What's real is the work: the layout, the copy structure, the mobile-friendly design, the forms and the checkout flow.
         The photos are free-licence ones, nothing copied from another business's website. When I build yours, the content
         becomes your business and the photos become your own.
         <br><br>
-        And these samples are a starting point. Tell me how you want yours to look — the colours, the sections, the
-        offers you run, the questions your customers always ask — and your site ends up better than any of these.
+        The “what you’d provide” lists are there so you can see the handoff clearly. You don’t need perfect copy or a
+        photoshoot before we talk — a rough list of services, prices, photos and details is enough to start.
       </div>
     </div>
   </section>
@@ -149,7 +261,7 @@
   <div class="wrap" style="padding-bottom:80px">
     <div class="contact">
       <h2>Want one of these for your business?</h2>
-      <p>Send one message: what your business does and what you'd like the site to do. I'll reply with a fixed price and a date.</p>
+      <p>Send one message: what your business does, which sample feels closest, and what you'd like the site to do. I'll reply with a fixed price and a date.</p>
       <a class="btn btn-accent" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20saw%20your%20sample%20sites%20and%20want%20one%20for%20my%20business">WhatsApp +91 90049 10077</a>
       <a class="btn btn-ghost" href="tel:+919004910077">Call instead</a>
     </div>
