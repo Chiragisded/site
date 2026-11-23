@@ -1,0 +1,26 @@
+name: trim sticky bar
+
+on:
+  push:
+    paths:
+      - '.github/workflows/trim-bar.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  edit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python .github/scripts/trim_bar.py
+      - run: |
+          git config user.name "Chirag"
+          git config user.email "9004910077@users.noreply.github.com"
+          git add files/index.html
+          git commit -m "Make the sticky mobile bar shorter so it covers less of the page"
+          git push
