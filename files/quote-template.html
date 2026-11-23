@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quote template - Chirag</title>
+<meta name="robots" content="noindex">
+<style>
+  @page{size:A4;margin:14mm}
+  *{box-sizing:border-box}
+  body{margin:0;background:#eceae4;color:#12140f;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Arial,sans-serif;font-size:13.5px;line-height:1.55}
+  .sheet{max-width:186mm;margin:24px auto;background:#fffdf8;padding:16mm 14mm;box-shadow:0 10px 40px rgba(0,0,0,.14)}
+  .top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;border-bottom:2px solid #12140f;padding-bottom:12px}
+  .brand{font-weight:600;font-size:16px;letter-spacing:-.01em}
+  .brand small{display:block;font-weight:400;font-size:12px;color:#5f6357;margin-top:4px;line-height:1.5}
+  .doc{text-align:right;font-size:12px;color:#5f6357}
+  .doc b{display:block;font-size:20px;letter-spacing:-.01em;color:#12140f;font-weight:600;margin-bottom:4px}
+  h2{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5f6357;margin:20px 0 8px;font-weight:600}
+  table{width:100%;border-collapse:collapse}
+  td{padding:7px 0;border-bottom:1px solid #e5e2d8;vertical-align:top}
+  td:first-child{width:36%;color:#5f6357}
+  .fill{display:inline-block;min-width:70px;border-bottom:1px dotted #9aa08f;outline:none;padding:0 2px}
+  ul{margin:0;padding-left:18px}
+  li{padding:4px 0}
+  .money{display:flex;gap:14px;border:1px solid #12140f;padding:12px 14px;margin-top:20px}
+  .money div{flex:1;font-size:11.5px;color:#5f6357}
+  .money b{display:block;font-size:17px;color:#12140f;font-weight:600;margin-top:3px}
+  .fine{font-size:11.5px;color:#5f6357;margin:20px 0 0;line-height:1.6}
+  .sign{display:flex;gap:40px;margin-top:28px}
+  .sign div{flex:1;border-top:1px solid #12140f;padding-top:6px;font-size:11px;color:#5f6357}
+  .print{position:fixed;right:18px;bottom:18px;padding:12px 18px;border:0;border-radius:3px;background:#12140f;color:#c8f24e;font:inherit;font-weight:600;cursor:pointer}
+  :where(button,[contenteditable]):focus-visible{outline:2px solid #12140f;outline-offset:3px}
+  @media print{
+    body{background:#fff;font-size:11pt}
+    .sheet{box-shadow:none;margin:0;max-width:none;padding:0;background:#fff}
+    .print{display:none}
+    .fill{border-bottom:1px solid #b9bdad}
+    h2{page-break-after:avoid}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="top">
+    <div class="brand">Chirag<small>Websites for small businesses, Mumbai and Navi Mumbai<br>+91 90049 10077, WhatsApp is fastest</small></div>
+    <div class="doc"><b>Quote</b>Date <span class="fill" contenteditable="true"></span><br>Valid until <span class="fill" contenteditable="true"></span></div>
+  </div>
+
+  <h2>Client</h2>
+  <table>
+    <tr><td>Business</td><td><span class="fill" contenteditable="true"></span></td></tr>
+    <tr><td>Contact</td><td><span class="fill" contenteditable="true"></span></td></tr>
+    <tr><td>Website address</td><td><span class="fill" contenteditable="true"></span></td></tr>
+    <tr><td>Package</td><td><span class="fill" contenteditable="true">A proper business website, from 12,000</span></td></tr>
+  </table>
+
+  <h2>What you get</h2>
+  <ul>
+    <li contenteditable="true">4 to 6 pages: home, services, prices, contact</li>
+    <li contenteditable="true">Looks right on phones, contact form, Google listing for the business name</li>
+    <li contenteditable="true">Two rounds of changes before launch</li>
+  </ul>
+
+  <h2>Not included</h2>
+  <ul>
+    <li contenteditable="true">Writing your copy, photography, logo design</li>
+    <li contenteditable="true">Logins, dashboards or custom tools, quoted separately</li>
+    <li contenteditable="true">Domain and hosting, paid in your name</li>
+  </ul>
+
+  <div class="money">
+    <div>Total, one-off<b>Rs <span class="fill" contenteditable="true">12,000</span></b></div>
+    <div>50% to start<b>Rs <span class="fill" contenteditable="true">6,000</span></b></div>
+    <div>Balance at launch<b>Rs <span class="fill" contenteditable="true">6,000</span></b></div>
+  </div>
+
+  <h2>Dates</h2>
+  <table>
+    <tr><td>Your text and photos by</td><td><span class="fill" contenteditable="true"></span></td></tr>
+    <tr><td>Preview link</td><td><span class="fill" contenteditable="true">within a week of content</span></td></tr>
+    <tr><td>Live</td><td><span class="fill" contenteditable="true"></span></td></tr>
+  </table>
+
+  <p class="fine">One fixed price: it doesn't change unless you ask for something extra, and that gets priced separately first. If your words and photos arrive late, the launch date moves with them. Thirty days of fixes are included after launch. After that the site, the domain and the accounts are all in your name.</p>
+
+  <div class="sign"><div>Your signature and date</div><div>Chirag</div></div>
+</div>
+<button class="print" onclick="window.print()">Print or save as PDF</button>
+</body>
+</html>
