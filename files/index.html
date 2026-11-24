@@ -166,6 +166,15 @@
   .facts li:last-child{border-bottom:1px solid var(--line)}
   .facts span{color:var(--muted)}
 
+  /* proof / testimonials */
+  .testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;border:1px solid var(--line);border-radius:var(--radius);background:var(--line);overflow:hidden}
+  .testimonial{background:var(--ink);padding:30px;display:flex;flex-direction:column}
+  .testimonial .placeholder{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#101405;background:var(--accent);padding:4px 8px;border-radius:2px;margin-bottom:16px;align-self:flex-start}
+  .testimonial blockquote{margin:0 0 20px;font-size:15.5px;color:#d4d5cf;line-height:1.65;flex:1}
+  .testimonial .who{border-top:1px solid var(--line);padding-top:16px;font-size:14px}
+  .testimonial .who b{display:block;font-weight:500;color:var(--text);margin-bottom:2px}
+  .testimonial .who span{color:var(--muted)}
+
   /* running costs */
   .costs{
     list-style:none;padding:0;margin:0;
@@ -407,6 +416,45 @@
           <li><b>Changes after launch</b><span>Included for 30 days</span></li>
           <li><b>Based in</b><span>Navi Mumbai · also working remotely</span></li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="proof">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">From clients</p>
+        <h2>Real words, from real projects.</h2>
+        <p>These are placeholders until I have permission to share real client feedback. Replace each card with a real quote, name, and project.</p>
+      </div>
+
+      <div class="testimonials">
+        <div class="testimonial">
+          <span class="placeholder">Placeholder — replace</span>
+          <blockquote>“Replace this with a real client quote. A good one says what the business needed, what changed after the site went live, or what it was like to work together.”</blockquote>
+          <div class="who">
+            <b>Client name (replace)</b>
+            <span>Business type · project type (replace)</span>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <span class="placeholder">Placeholder — replace</span>
+          <blockquote>“Replace this with a real client quote. Keep it specific — a result, time saved, or a clear before/after works better than general praise.”</blockquote>
+          <div class="who">
+            <b>Client name (replace)</b>
+            <span>Business type · project type (replace)</span>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <span class="placeholder">Placeholder — replace</span>
+          <blockquote>“Replace this with a real client quote. Even a short two-sentence note is enough if it’s honest and specific.”</blockquote>
+          <div class="who">
+            <b>Client name (replace)</b>
+            <span>Business type · project type (replace)</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
