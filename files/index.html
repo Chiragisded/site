@@ -162,7 +162,7 @@
 
   /* what to send me, under the terms: the two weeks are waiting on this */
   .sendlist{margin-top:16px;border:1px solid var(--line);border-radius:var(--radius);padding:30px 32px;background:var(--ink)}
-  .sendlist ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px 30px}
+  .sendlist ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px 30px}
   .sendlist li{position:relative;padding-left:26px;font-size:15px;line-height:1.55;color:var(--muted)}
   .sendlist li::before{content:'';position:absolute;left:2px;top:7px;width:11px;height:6px;border-left:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent);transform:rotate(-45deg)}
   .sendlist b{font-weight:500;color:var(--text)}
