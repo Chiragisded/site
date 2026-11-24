@@ -260,6 +260,9 @@ dialog.checkout::backdrop{background:rgba(16,17,18,.72)}
 .sample-pill b{display:block;font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.74rem}
 .sample-pill span{opacity:.7;font-size:.75rem}
 
+/* the fixed sample pill sits over the footer, so reserve room for it */
+.site-footer{padding-bottom:104px}
+
 @media (max-width:900px){
   .hero{grid-template-columns:1fr;gap:30px;padding:44px 0 32px}
   .hero-photo img{aspect-ratio:16/11}

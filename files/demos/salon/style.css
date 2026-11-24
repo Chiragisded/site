@@ -213,6 +213,9 @@ section{padding:68px 0}
 .sample-pill b{display:block;font-weight:600;letter-spacing:.04em}
 .sample-pill span{opacity:.75;font-size:.76rem}
 
+/* the fixed sample pill sits over the footer, so reserve room for it */
+.site-footer{padding-bottom:104px}
+
 @media (max-width:900px){
   .hero{grid-template-columns:1fr;gap:36px;padding:44px 0 40px}
   .hero-photo::after{inset:-10px -10px 10px 10px}

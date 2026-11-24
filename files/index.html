@@ -138,6 +138,7 @@
 
   /* one hairline-divided block, not three floating cards */
   .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;border:1px solid var(--line);border-radius:var(--radius);background:var(--line);overflow:hidden}
+  .card[id]{scroll-margin-top:96px}
   .card{
     background:var(--ink);
     padding:34px 30px;display:flex;flex-direction:column;
@@ -411,7 +412,7 @@
       </div>
 
       <div class="cards">
-        <div class="card">
+        <div class="card" id="package-1">
           <p class="tag">Be findable</p>
           <h3>A proper business website</h3>
           <p class="small">For a shop, salon, tradesperson or clinic that people search for and find nothing.</p>
@@ -425,7 +426,7 @@
 
           <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B912%2C000%20package%20%E2%80%94%20a%20proper%20business%20website.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
 
-        <div class="card">
+        <div class="card" id="package-2">
           <p class="tag">Handle enquiries properly</p>
           <h3>Website with a database</h3>
           <p class="small">When enquiries, bookings or applications need to be tracked instead of lost in your inbox.</p>
@@ -441,7 +442,7 @@
 
           <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B935%2C000%20package%20%E2%80%94%20a%20website%20with%20a%20database.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
 
-        <div class="card">
+        <div class="card" id="package-3">
           <p class="tag">Get paid online</p>
           <h3>Selling and payments</h3>
           <p class="small">For anyone taking deposits or orders online, without a shop till.</p>
