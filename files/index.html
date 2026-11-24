@@ -251,16 +251,96 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": "https://chiragisded.github.io/website-samples/files/#business",
   "name": "Chirag — websites for small businesses",
   "description": "Websites for small businesses in Mumbai and Navi Mumbai. Fixed-price builds, with enquiry forms, bookings, databases and online payments.",
   "url": "https://chiragisded.github.io/website-samples/files/",
   "telephone": "+919004910077",
+  "priceRange": "₹12,000 - ₹55,000",
+  "currenciesAccepted": "INR",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Navi Mumbai",
+    "addressRegion": "Maharashtra",
+    "addressCountry": "IN"
+  },
   "areaServed": [
     { "@type": "City", "name": "Mumbai" },
     { "@type": "City", "name": "Navi Mumbai" }
   ],
   "serviceType": ["Small business website", "Website with database", "Online payments and booking website"],
-  "priceRange": "₹12,000 - ₹55,000"
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Website packages",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "position": 1,
+        "name": "A proper business website",
+        "description": "A 4–6 page business website with services, prices, hours and location, and a contact form that emails every enquiry.",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 12000,
+          "priceCurrency": "INR"
+        },
+        "itemOffered": {
+          "@type": "Service",
+          "name": "A proper business website",
+          "serviceType": "Small business website",
+          "description": "For a shop, salon, tradesperson or clinic that people search for and find nothing.",
+          "provider": { "@id": "https://chiragisded.github.io/website-samples/files/#business" },
+          "areaServed": [
+            { "@type": "City", "name": "Mumbai" },
+            { "@type": "City", "name": "Navi Mumbai" }
+          ]
+        }
+      },
+      {
+        "@type": "Offer",
+        "position": 2,
+        "name": "Website with a database",
+        "description": "The business website plus enquiries saved to a database in your name, with email alerts and a way to view, search and export them.",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 35000,
+          "priceCurrency": "INR"
+        },
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Website with a database",
+          "serviceType": "Website with database",
+          "description": "For businesses whose enquiries, bookings or applications need to be tracked instead of lost in an inbox.",
+          "provider": { "@id": "https://chiragisded.github.io/website-samples/files/#business" },
+          "areaServed": [
+            { "@type": "City", "name": "Mumbai" },
+            { "@type": "City", "name": "Navi Mumbai" }
+          ]
+        }
+      },
+      {
+        "@type": "Offer",
+        "position": 3,
+        "name": "Selling and payments",
+        "description": "The business website plus Razorpay or PayU set up in your name, with deposits, orders and receipts saved to your database.",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 55000,
+          "priceCurrency": "INR"
+        },
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Selling and payments",
+          "serviceType": "Online payments and booking website",
+          "description": "For businesses taking deposits or orders online without a shop till.",
+          "provider": { "@id": "https://chiragisded.github.io/website-samples/files/#business" },
+          "areaServed": [
+            { "@type": "City", "name": "Mumbai" },
+            { "@type": "City", "name": "Navi Mumbai" }
+          ]
+        }
+      }
+    ]
+  }
 }
 </script>
 </head>
