@@ -150,6 +150,7 @@
   .card li::before{content:'';position:absolute;left:0;top:9px;width:11px;height:1.5px;background:var(--accent)}
   .price{margin-top:auto;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
   .price b{display:block;font-size:24px;font-weight:500;color:var(--text);letter-spacing:-.02em;margin-bottom:2px}
+  .card-cta{margin-top:16px;width:100%}
 
   /* terms, sitting right under the price cards */
   .terms{margin-top:26px;border:1px solid var(--line);border-radius:var(--radius);padding:30px 32px;background:var(--card)}
@@ -181,13 +182,15 @@
   .facts span{color:var(--muted)}
 
   /* proof / testimonials */
-  .testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;border:1px solid var(--line);border-radius:var(--radius);background:var(--line);overflow:hidden}
-  .testimonial{background:var(--ink);padding:30px;display:flex;flex-direction:column}
-  .testimonial .placeholder{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#101405;background:var(--accent);padding:4px 8px;border-radius:2px;margin-bottom:16px;align-self:flex-start}
-  .testimonial blockquote{margin:0 0 20px;font-size:15.5px;color:#d4d5cf;line-height:1.65;flex:1}
-  .testimonial .who{border-top:1px solid var(--line);padding-top:16px;font-size:14px}
-  .testimonial .who b{display:block;font-weight:500;color:var(--text);margin-bottom:2px}
-  .testimonial .who span{color:var(--muted)}
+  .proofs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;border:1px solid var(--line);border-radius:var(--radius);background:var(--line);overflow:hidden}
+  .proof{background:var(--ink);padding:28px;display:flex;flex-direction:column}
+  .proof .tag{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+  .proof h3{font-size:18px;font-weight:600;letter-spacing:-.01em;margin:0 0 8px}
+  .proof p{color:var(--muted);font-size:14.5px;line-height:1.6;margin:0 0 20px;flex:1}
+  .proof a{font-size:14px;color:var(--text);text-decoration:none;border-bottom:1px solid rgba(200,242,78,.5);padding-bottom:2px;align-self:flex-start}
+  .proof a:hover{color:var(--accent)}
+  .proof-note{margin:22px 0 0;font-size:14.5px;color:var(--muted)}
+  .proof-note a{color:var(--text);text-decoration:underline;text-underline-offset:3px}
 
   /* running costs */
   .costs{
@@ -419,7 +422,8 @@
             <li>Set up to appear on Google for your business name</li>
           </ul>
           <p class="price"><b>From ₹12,000</b>One-off. Domain and hosting from about ₹4,000 a year.</p>
-        </div>
+
+          <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B912%2C000%20package%20%E2%80%94%20a%20proper%20business%20website.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
 
         <div class="card">
           <p class="tag">Handle enquiries properly</p>
@@ -434,7 +438,8 @@
             <li>A staff login area can be added — we scope it on the call</li>
           </ul>
           <p class="price"><b>From ₹35,000</b>One-off. Includes 30 days of fixes after launch.</p>
-        </div>
+
+          <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B935%2C000%20package%20%E2%80%94%20a%20website%20with%20a%20database.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
 
         <div class="card">
           <p class="tag">Get paid online</p>
@@ -450,7 +455,8 @@
             <li>Refunds you can issue yourself from the same dashboard</li>
           </ul>
           <p class="price"><b>From ₹55,000</b>One-off. Payment gateway fees are charged by them, not by me.</p>
-        </div>
+
+          <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B955%2C000%20package%20%E2%80%94%20selling%20and%20payments%20online.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
       </div>
 
       <div class="terms">
@@ -539,39 +545,42 @@
   <section id="proof">
     <div class="wrap">
       <div class="sec-head">
-        <p class="kicker">From clients</p>
-        <h2>Real words, from real projects.</h2>
-        <p>These are placeholders until I have permission to share real client feedback. Replace each card with a real quote, name, and project.</p>
+        <p class="kicker">Proof</p>
+        <h2>Four sites you can open right now.</h2>
+        <p>No client quotes yet. I'm early in this and I won't invent any. What I do have is four complete sites I built end to end: the businesses in them are invented, the forms, the database and the payment flow are real. Open one on your phone and judge the build before you message me.</p>
       </div>
 
-      <div class="testimonials">
-        <div class="testimonial">
-          <span class="placeholder">Placeholder — replace</span>
-          <blockquote>“Replace this with a real client quote. A good one says what the business needed, what changed after the site went live, or what it was like to work together.”</blockquote>
-          <div class="who">
-            <b>Client name (replace)</b>
-            <span>Business type · project type (replace)</span>
-          </div>
+      <div class="proofs">
+        <div class="proof">
+          <p class="tag">Package 1 · from ₹12,000</p>
+          <h3>Kaya Salon &amp; Spa</h3>
+          <p>Four pages, a full price list, opening hours, a map and a booking button that opens WhatsApp.</p>
+          <a href="demos/salon/index.html">Open the salon site →</a>
         </div>
 
-        <div class="testimonial">
-          <span class="placeholder">Placeholder — replace</span>
-          <blockquote>“Replace this with a real client quote. Keep it specific — a result, time saved, or a clear before/after works better than general praise.”</blockquote>
-          <div class="who">
-            <b>Client name (replace)</b>
-            <span>Business type · project type (replace)</span>
-          </div>
+        <div class="proof">
+          <p class="tag">Package 2 · from ₹35,000</p>
+          <h3>Bright Minds Classes</h3>
+          <p>Enquiries saved to a database instead of lost in a DM, with a free-trial booking form.</p>
+          <a href="demos/coaching/index.html">Open the tuition site →</a>
         </div>
 
-        <div class="testimonial">
-          <span class="placeholder">Placeholder — replace</span>
-          <blockquote>“Replace this with a real client quote. Even a short two-sentence note is enough if it’s honest and specific.”</blockquote>
-          <div class="who">
-            <b>Client name (replace)</b>
-            <span>Business type · project type (replace)</span>
-          </div>
+        <div class="proof">
+          <p class="tag">Package 3 · from ₹55,000</p>
+          <h3>Iron Yard Fitness</h3>
+          <p>Plans side by side, online joining by UPI or card, and a receipt in the member's inbox.</p>
+          <a href="demos/gym/index.html">Open the gym site →</a>
+        </div>
+
+        <div class="proof">
+          <p class="tag">Custom quote</p>
+          <h3>Sable &amp; Stone</h3>
+          <p>A studio brand site where the type, the scroll and the photographs do the selling.</p>
+          <a href="demos/atelier/index.html">Open the studio site →</a>
         </div>
       </div>
+
+      <p class="proof-note">All four, side by side, with what each one fixes and what the owner would need to hand over: <a href="demos/index.html">sample sites</a>.</p>
     </div>
   </section>
 
