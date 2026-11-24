@@ -162,11 +162,10 @@
 
   /* what to send me, under the terms: the two weeks are waiting on this */
   .sendlist{margin-top:16px;border:1px solid var(--line);border-radius:var(--radius);padding:30px 32px;background:var(--ink)}
-  .sendlist ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 30px}
-  .sendlist li{position:relative;padding-left:26px}
+  .sendlist ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px 30px}
+  .sendlist li{position:relative;padding-left:26px;font-size:15px;line-height:1.55;color:var(--muted)}
   .sendlist li::before{content:'';position:absolute;left:2px;top:7px;width:11px;height:6px;border-left:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent);transform:rotate(-45deg)}
-  .sendlist b{display:block;font-size:15px;font-weight:500;margin-bottom:3px}
-  .sendlist span{display:block;color:var(--muted);font-size:14px;line-height:1.6}
+  .sendlist b{font-weight:500;color:var(--text)}
   .sendlist-note{margin:22px 0 0;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;line-height:1.6}
 
   /* steps */
@@ -494,11 +493,11 @@
       <div class="sendlist">
         <p class="terms-title">What to send me — the two weeks start when this arrives</p>
         <ul>
-          <li><b>Your details</b><span>Business name, address, phone and WhatsApp number.</span></li>
-          <li><b>What you sell</b><span>Your services or products, with prices, and the area you cover.</span></li>
-          <li><b>Hours and photos</b><span>Opening hours, plus 5–10 photos of the place, the work or the team. Phone photos are fine.</span></li>
-          <li><b>Logo and wording</b><span>Your logo if you have one, and any text you already use.</span></li>
-          <li><b>A domain, if you've picked one</b><span>If not, I'll suggest three that are free.</span></li>
+          <li><b>Your details</b> — business name, address, phone and WhatsApp.</li>
+          <li><b>What you sell</b> — services or products, with prices, and the area you cover.</li>
+          <li><b>Hours and photos</b> — opening hours and 5–10 photos. Phone photos are fine.</li>
+          <li><b>Logo and wording</b> — your logo if you have one, plus any text you already use.</li>
+          <li><b>The domain</b> — the name you want, if you've picked one. If not, I'll suggest three that are free.</li>
         </ul>
         <p class="sendlist-note">Send them in one WhatsApp message and the two-week clock starts that day. Missing something? Send what you have — I'll tell you what's still needed.</p>
       </div>
