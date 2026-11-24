@@ -71,6 +71,13 @@ code{font-family:var(--mono);font-size:.88em;color:var(--sand)}
 .nav-links{gap:10px;font-size:.55rem;letter-spacing:.08em}
 .nav .btn{padding:8px 12px;font-size:.72rem}
 }
+@media (max-width:380px){
+/* brand + three links + Enquire do not fit on one 320px line, so the nav takes two */
+.nav{gap:8px;flex-wrap:wrap;row-gap:2px;padding-top:9px;padding-bottom:9px}
+.nav .brand{order:1}
+.nav .btn{order:2;margin-left:auto}
+.nav-links{order:3;flex:1 0 100%;gap:18px;justify-content:flex-start}
+}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}
 *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
 .has-js .reveal,.has-js [data-split]{opacity:1;transform:none}
