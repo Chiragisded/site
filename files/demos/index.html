@@ -62,6 +62,9 @@
   .sample .summary{color:#c3c4bd;font-size:15px;margin:0;max-width:66ch}
   .sample .go{font-size:14px;font-weight:500;color:var(--accent);white-space:nowrap;border:1px solid rgba(200,242,78,.35);border-radius:3px;padding:10px 18px;text-decoration:none;align-self:start}
   .sample .go:hover{background:rgba(200,242,78,.08)}
+  .sample-cta{display:flex;flex-direction:column;gap:8px;align-items:stretch;justify-self:end}
+  .sample .go--ask{background:var(--accent);border-color:var(--accent);color:#101405;text-align:center}
+  .sample .go--ask:hover{background:#d5fb6d;border-color:#d5fb6d}
 
   .proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
   .proof-block{min-width:0}
@@ -84,7 +87,9 @@
   @media (max-width:700px){
     .sample{padding:24px}
     .sample-head{grid-template-columns:1fr;gap:16px}
+    .sample-cta{justify-self:stretch}
     .sample .go{justify-self:start}
+    .sample .go--ask{justify-self:stretch}
     .contact .btn{width:100%;margin:0 0 10px}
   }
   @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation-duration:.01ms !important}}
@@ -107,6 +112,7 @@
     <p class="lede">
       The businesses are invented. The websites aren't. Pages, forms, checkout, wording: all of it is built and working.
       Open one on your phone, then read what it's meant to fix and what I'd need from you to run it for real.
+      When one looks close, use its <strong>Use this one</strong> button: the WhatsApp message arrives already naming the sample, so I can quote from the first reply.
     </p>
     <div class="cta-row">
       <a class="btn btn-accent" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20saw%20your%20sample%20sites%20and%20want%20one%20for%20my%20business">Message me on WhatsApp</a>
@@ -118,7 +124,7 @@
     <div class="wrap">
       <p class="kicker">The four samples</p>
       <h2>Why each one looks the way it does.</h2>
-      <p class="section-lede">Under every card: the problem it's aimed at, what's already built, and what I'd need from you.</p>
+      <p class="section-lede">Under every card: the problem it's aimed at, what's already built, and what I'd need from you. If one is close to your business, press <strong>Use this one</strong> — that's the fastest quote.</p>
 
       <div class="samples">
 
@@ -129,7 +135,10 @@
               <h3><a href="salon/index.html">Kaya Salon &amp; Spa, Vashi</a></h3>
               <p class="summary">Three pages for a salon: prices, opening hours, and a booking button that opens WhatsApp with the message written.</p>
             </div>
-            <a class="go" href="salon/index.html">Open sample</a>
+            <div class="sample-cta">
+              <a class="go" href="salon/index.html">Open sample</a>
+              <a class="go go--ask" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20a%20site%20like%20the%20Kaya%20Salon%20sample%20(package%201)%20for%20my%20business.%20My%20business%20is%3A%20">Use this one</a>
+            </div>
           </div>
           <div class="proof">
             <div class="proof-block">
@@ -162,7 +171,10 @@
               <h3><a href="coaching/index.html">Bright Minds Classes, Nerul</a></h3>
               <p class="summary">A class site where parents can see fees and timings, then send an enquiry that lands in a list instead of a DM.</p>
             </div>
-            <a class="go" href="coaching/index.html">Open sample</a>
+            <div class="sample-cta">
+              <a class="go" href="coaching/index.html">Open sample</a>
+              <a class="go go--ask" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20a%20site%20like%20the%20Bright%20Minds%20Classes%20sample%20(package%202)%20for%20my%20business.%20My%20business%20is%3A%20">Use this one</a>
+            </div>
           </div>
           <div class="proof">
             <div class="proof-block">
@@ -195,7 +207,10 @@
               <h3><a href="gym/index.html">Iron Yard Fitness, Kharghar</a></h3>
               <p class="summary">A gym site with plans side by side and a join form that hands back a member ID. The payment step is a demo here.</p>
             </div>
-            <a class="go" href="gym/index.html">Open sample</a>
+            <div class="sample-cta">
+              <a class="go" href="gym/index.html">Open sample</a>
+              <a class="go go--ask" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20a%20site%20like%20the%20Iron%20Yard%20gym%20sample%20(package%203)%20for%20my%20business.%20My%20business%20is%3A%20">Use this one</a>
+            </div>
           </div>
           <div class="proof">
             <div class="proof-block">
@@ -228,7 +243,10 @@
               <h3><a href="atelier/index.html">Sable &amp; Stone, Bandra West</a></h3>
               <p class="summary">A studio site that leans on how it looks: heavy visuals on top, work and contact still easy to find underneath.</p>
             </div>
-            <a class="go" href="atelier/index.html">Open sample</a>
+            <div class="sample-cta">
+              <a class="go" href="atelier/index.html">Open sample</a>
+              <a class="go go--ask" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20a%20site%20like%20the%20Sable%20%26%20Stone%20sample%20(custom%20brand%20site)%20for%20my%20business.%20My%20business%20is%3A%20">Use this one</a>
+            </div>
           </div>
           <div class="proof">
             <div class="proof-block">
