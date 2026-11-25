@@ -50,10 +50,14 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
    lined up on the drawing board; it fills the empty third of a wide screen */
 .hero-room{display:none}
 @media (min-width:1280px){
-  .hero-room{display:block;position:absolute;right:3.4%;top:42%;width:min(32vw,440px);transform:translateY(-50%);pointer-events:auto;cursor:grab;touch-action:pan-y;perspective:900px;z-index:3;user-select:none;-webkit-user-select:none}
-  .hero-room.is-grabbing{cursor:grabbing}
-  .hero-room .room-draw{transform-origin:50% 56%;will-change:transform;backface-visibility:hidden}
-  .hero-room .room-glow{position:absolute;inset:-4% 2% 6%;background:radial-gradient(50% 50% at 52% 54%,rgba(124,199,232,.15),rgba(216,195,165,.05) 46%,transparent 74%);filter:blur(10px)}
+  .hero-room{display:block;position:absolute;right:3.4%;top:42%;width:min(32vw,440px);transform:translateY(-50%);pointer-events:auto;z-index:3}
+  /* three.js paints into this once the module and WebGL are up; until then the
+     drawn axonometric underneath is the room, and it still reads */
+  .hero-room .room-canvas{display:none;width:100%;height:auto;aspect-ratio:377/276;cursor:grab;touch-action:pan-y}
+  .hero-room.is-3d .room-canvas{display:block}
+  .hero-room.is-3d .room-draw{display:none}
+  .hero-room.is-grabbing .room-canvas{cursor:grabbing}
+  .hero-room .room-glow{pointer-events:none;position:absolute;inset:-4% 2% 6%;background:radial-gradient(50% 50% at 52% 54%,rgba(124,199,232,.15),rgba(216,195,165,.05) 46%,transparent 74%);filter:blur(10px)}
   .hero-room .room-draw{position:relative;display:block;width:100%;height:auto;opacity:.97}
   .hero-room .lamp-glow{animation:roomBreathe 9s ease-in-out infinite alternate}
   .hero-room .room-cap{display:flex;justify-content:space-between;gap:14px;margin:6px 0 0;padding-top:9px;border-top:1px solid rgba(216,195,165,.20);font-size:.55rem;letter-spacing:.17em;color:#8d9196;white-space:nowrap}
