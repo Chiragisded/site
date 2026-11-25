@@ -36,7 +36,7 @@ h1{font-size:clamp(3rem,8.4vw,6.6rem);line-height:.92}
 h2{font-size:clamp(2rem,4.6vw,3.4rem)}
 h3{font-size:1.4rem;line-height:.98}
 p{margin:0 0 1em;max-width:var(--measure)}
-.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 24px}
 
 .eyebrow{
   display:inline-flex;align-items:center;gap:9px;margin:0 0 18px;

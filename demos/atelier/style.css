@@ -6,7 +6,7 @@ img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 h1,h2,h3,h4{font-family:var(--display);font-weight:300;letter-spacing:-.025em;line-height:1.08;text-wrap:balance;margin:0}
 p{margin:0 0 1em;max-width:var(--measure)}
-.wrap{max-width:1200px;margin:0 auto;padding:0 var(--edge)}
+.wrap{max-width:1360px;margin:0 auto;padding:0 var(--edge)}
 .mono,.kicker,.eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin:0}
 .kicker{color:var(--ice);display:flex;align-items:center;gap:10px}
 .kicker::before{content:"";width:22px;height:1px;background:currentColor;opacity:.7}

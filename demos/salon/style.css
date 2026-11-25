@@ -34,7 +34,7 @@ h1 em{font-style:italic;color:var(--brass)}
 h2{font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1.06}
 h3{font-size:1.55rem;line-height:1.2}
 p{margin:0 0 1em;max-width:var(--measure)}
-.wrap{max-width:1140px;margin:0 auto;padding:0 26px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 26px}
 
 /* small-caps labels */
 .eyebrow{
