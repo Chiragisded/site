@@ -29,8 +29,13 @@
 <style>
   :root{--ink:#0d0f0d;--card:#151814;--line:rgba(255,255,255,.09);--text:#eceae4;--muted:#9d9f98;--muted2:#8e908a;--accent:#c8f24e}
   *{box-sizing:border-box}
-  body{margin:0;background:var(--ink);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  body{margin:0;background-color:var(--ink);
+    /* static grain fallback; the canvas takes over when dots.js runs */
+    background-image:radial-gradient(rgba(255,255,255,.085) 1px, transparent 1.4px);
+    background-size:24px 24px;color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
   .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  #dotfield{position:fixed;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:-1}
+  html.dots-live body{background-image:none}
   a{color:inherit}
   ::selection{background:rgba(200,242,78,.24);color:#0d0f0d}
   :where(a,button,summary,input,textarea,select):focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
@@ -307,6 +312,9 @@
     <span>Mumbai &amp; Navi Mumbai</span>
   </div>
 </footer>
+
+<canvas id="dotfield" aria-hidden="true"></canvas>
+<script src="../dots.js" defer></script>
 
 </body>
 </html>

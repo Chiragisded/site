@@ -159,6 +159,12 @@
   .card li::before{content:'';position:absolute;left:0;top:9px;width:11px;height:1.5px;background:var(--accent)}
   .price{margin-top:auto;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
   .price b{display:block;font-size:24px;font-weight:500;color:var(--text);letter-spacing:-.02em;margin-bottom:2px}
+  /* template photo flush to the top edge of each card */
+  .card .shot{display:block;position:relative;margin:-34px -30px 26px;border-bottom:1px solid var(--line);overflow:hidden;text-decoration:none}
+  .card .shot img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;transition:transform .6s ease}
+  .card .shot:hover img{transform:scale(1.035)}
+  .card .shot span{position:absolute;left:12px;bottom:12px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text);background:rgba(13,15,13,.74);border:1px solid var(--line);border-radius:2px;padding:5px 9px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+  @media (prefers-reduced-motion:reduce){.card .shot img{transition:none}}
   .card-cta{margin-top:16px;width:100%}
 
   /* terms, sitting right under the price cards */
@@ -447,6 +453,10 @@
 
       <div class="cards">
         <div class="card" id="package-1">
+          <a class="shot" href="demos/salon/index.html">
+            <img src="demos/previews/template-salon.jpg" alt="The Neem Salon sample: a dark page with a large photograph, prices and a booking button" width="1000" height="625" loading="lazy" decoding="async">
+            <span>Template · Neem Salon</span>
+          </a>
           <p class="tag">Be findable</p>
           <h3>A proper business website</h3>
           <p class="small">For a shop, salon, tradesperson or clinic that people search for and find nothing.</p>
@@ -461,6 +471,10 @@
           <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B912%2C000%20package%20%E2%80%94%20a%20proper%20business%20website.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%2C%20prices%2C%20area%3B%20hours%2C%205%E2%80%9310%20photos%3B%20logo%2Fwording%3B%20the%20domain.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
 
         <div class="card" id="package-2">
+          <a class="shot" href="demos/coaching/index.html">
+            <img src="demos/previews/template-coaching.jpg" alt="The Bright Minds Classes sample: a cream editorial page with a timetable and admission form" width="1000" height="625" loading="lazy" decoding="async">
+            <span>Template · Bright Minds Classes</span>
+          </a>
           <p class="tag">Handle enquiries properly</p>
           <h3>Website with a database</h3>
           <p class="small">When enquiries, bookings or applications need to be tracked instead of lost in your inbox.</p>
@@ -477,6 +491,10 @@
           <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B935%2C000%20package%20%E2%80%94%20a%20website%20with%20a%20database.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%2C%20prices%2C%20area%3B%20hours%2C%205%E2%80%9310%20photos%3B%20logo%2Fwording%3B%20the%20domain.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
 
         <div class="card" id="package-3">
+          <a class="shot" href="demos/gym/index.html">
+            <img src="demos/previews/template-gym.jpg" alt="The Iron Yard sample: a black and lime page with membership plans and a day pass" width="1000" height="625" loading="lazy" decoding="async">
+            <span>Template · Iron Yard</span>
+          </a>
           <p class="tag">Get paid online</p>
           <h3>Selling and payments</h3>
           <p class="small">For anyone taking deposits or orders online, without a shop till.</p>
@@ -823,94 +841,7 @@
 <a class="sticky-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%27d%20like%20a%20quote%20for%20a%20website.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%2C%20prices%2C%20area%3B%20hours%2C%205%E2%80%9310%20photos%3B%20logo%2Fwording%3B%20the%20domain.%20My%20business%20is%3A%20">Get a free quote</a>
 
 <canvas id="dotfield" aria-hidden="true"></canvas>
-<script>
-/* Dot field: a slow crest travelling top-left to bottom-right, plus a halo that
-   fattens the dots around the cursor or finger. Falls back to the CSS grain when
-   the visitor prefers reduced motion, or when this script does not run. */
-(function(){
-  var cv = document.getElementById('dotfield');
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (!cv || !cv.getContext || (reduce && reduce.matches)) return;
-
-  var ctx = cv.getContext('2d');
-  var GAP = 24, SPEED = 0.9, REACH = 160, MAXR = 4.2, FREQ = 0.0121;
-  var w = 0, h = 0, dpr = 1, pts = [];
-  var px = -1e4, py = -1e4, tx = -1e4, ty = -1e4;
-  var start = 0, last = 0, live = false;
-
-  function build(){
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    w = window.innerWidth; h = window.innerHeight;
-    cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr);
-    pts.length = 0;
-    for (var y = 0; y <= h + GAP; y += GAP)
-      for (var x = 0; x <= w + GAP; x += GAP) pts.push(x, y);
-  }
-
-  function paint(now){
-    requestAnimationFrame(paint);
-    if (document.hidden || now - last < 24) return;   /* ~40fps is plenty for this */
-    last = now;
-    if (!start) start = now;
-    var t = (now - start) / 1000;
-
-    px += (tx - px) * 0.14; py += (ty - py) * 0.14;
-
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, w, h);
-
-    /* group dots into six alpha steps, so this is six fills per frame, not thousands */
-    var buckets = [[], [], [], [], [], [], [], []], reach2 = REACH * REACH;
-    for (var i = 0; i < pts.length; i += 2){
-      var x = pts[i], y = pts[i + 1];
-      var wave = Math.sin((x + y) * FREQ - t * SPEED);
-      var k = wave * 0.5 + 0.5;
-      var r = 1.8 + 1.3 * k;
-      var infl = 0;
-      var dx = x - px, dy = y - py, d2 = dx * dx + dy * dy;
-      if (d2 < reach2){
-        infl = 1 - Math.sqrt(d2) / REACH;
-        infl *= infl;
-        r += MAXR * infl;
-      }
-      var a = 0.05 + 0.07 * k + 0.2 * infl;
-      buckets[Math.min(7, (a * 24) | 0)].push(x, y, r);
-    }
-    for (var b = 0; b < 8; b++){
-      var arr = buckets[b];
-      if (!arr.length) continue;
-      ctx.fillStyle = 'rgba(255,255,255,' + ((b + 1) / 24).toFixed(3) + ')';
-      ctx.beginPath();
-      for (var j = 0; j < arr.length; j += 3){
-        ctx.moveTo(arr[j] + arr[j + 2], arr[j + 1]);
-        ctx.arc(arr[j], arr[j + 1], arr[j + 2], 0, 6.2832);
-      }
-      ctx.fill();
-    }
-
-    if (!live){ live = true; document.documentElement.classList.add('dots-live'); }
-  }
-
-  function aim(e){
-    var p = e.touches ? e.touches[0] : e;
-    if (!p) return;
-    tx = p.clientX; ty = p.clientY;
-  }
-  function away(){ tx = -1e4; ty = -1e4; }
-
-  window.addEventListener('pointermove', aim, {passive: true});
-  window.addEventListener('pointerdown', aim, {passive: true});
-  window.addEventListener('touchmove', aim, {passive: true});
-  window.addEventListener('blur', away);
-  window.addEventListener('mouseout', function(e){ if (!e.relatedTarget) away(); });
-
-  var rz;
-  window.addEventListener('resize', function(){ clearTimeout(rz); rz = setTimeout(build, 150); });
-
-  build();
-  requestAnimationFrame(paint);
-})();
-</script>
+<script src="dots.js" defer></script>
 
 </body>
 </html>

@@ -1,6 +1,15 @@
 .deck{padding:clamp(72px,10vw,132px) 0 0}
 .deck-stage{position:relative;height:280vh}
 .deck-pin{position:sticky;top:0;height:100svh;display:grid;place-items:center;perspective:1500px;overflow:hidden}
+/* a grid floor receding to the horizon: the pinned sections were a field of black
+   on a wide screen, and a floor gives the cards and the objects something to sit on */
+.deck-pin::before,.obj-pin::before{content:"";position:absolute;left:-10%;right:-10%;bottom:0;height:50%;pointer-events:none;z-index:0;
+  background-image:linear-gradient(to right,rgba(124,199,232,.18) 1px,transparent 1px),linear-gradient(to bottom,rgba(124,199,232,.18) 1px,transparent 1px);
+  background-size:66px 66px;
+  transform:perspective(620px) rotateX(67deg);transform-origin:bottom center;
+  -webkit-mask-image:radial-gradient(62% 92% at 50% 100%,#000 8%,rgba(0,0,0,.45) 55%,transparent 82%);
+  mask-image:radial-gradient(62% 92% at 50% 100%,#000 8%,rgba(0,0,0,.45) 55%,transparent 82%)}
+@media (max-width:860px){.deck-pin::before,.obj-pin::before{height:32%;background-size:44px 44px}}
 .deck-3d{position:relative;width:min(560px,86vw);aspect-ratio:4/5;max-height:70svh;transform-style:preserve-3d;transition:transform .7s var(--ease);}
 .plane{position:absolute;inset:0;transform-style:preserve-3d;backface-visibility:hidden;will-change:transform,opacity;}
 .plane:nth-child(2){opacity:.72;transform:translate3d(0,42px,-265px) rotateX(9deg)}
@@ -12,6 +21,7 @@
 .plane figcaption p{margin:0;color:#b7b9ba;font-size:.9rem;max-width:36ch}
 .plane figcaption .mono{color:var(--sand)}
 .deck-ui{position:absolute;left:0;right:0;bottom:clamp(18px,4vh,40px);display:flex;align-items:center;justify-content:space-between;padding:0 var(--edge);pointer-events:none;}
+@media (min-width:1280px){.deck-3d{width:min(700px,44vw);max-height:82svh}}
 .deck-dots{display:flex;gap:7px;align-items:center}
 .deck-dots i{width:22px;height:1px;background:rgba(255,255,255,.22);transition:background .4s,width .4s}
 .deck-dots i.is-on{background:var(--ice);width:34px}
@@ -95,7 +105,7 @@ html:not(.has-js) .rail-card{scroll-snap-align:start}
 /* ---- the object table ------------------------------------------------ */
 .objects{position:relative;padding:clamp(72px,10vw,132px) 0 0}
 .obj-stage{position:relative;height:260vh}
-.obj-pin{position:sticky;top:0;height:100svh;display:grid;place-items:center;overflow:hidden;isolation:isolate}
+.obj-pin{position:sticky;top:0;height:100svh;display:grid;place-items:center;overflow:hidden;isolation:isolate;z-index:0}
 #objCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .9s var(--ease);touch-action:pan-y;cursor:grab;}
 #objCanvas.is-grabbing{cursor:grabbing}
 /* leave room under the object for the tab pill: without this the plinth ring
