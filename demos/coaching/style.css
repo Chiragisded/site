@@ -346,3 +346,8 @@ table.fees .fee{
   html{scroll-behavior:auto}
   *{transition-duration:.01ms !important;animation-duration:.01ms !important}
 }
+
+/* the way out of the sample: the same link, in the sticky header, on every page */
+.nav-links{flex-wrap:wrap;row-gap:2px}
+.nav-links a.exit{color:var(--red);border:1px solid rgba(164,52,42,.38);border-radius:999px;padding:6px 13px;white-space:nowrap}
+.nav-links a.exit:hover{background:var(--red);border-color:var(--red);color:#fff}

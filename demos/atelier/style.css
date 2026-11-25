@@ -85,3 +85,9 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .split p:last-child{margin-bottom:0}
 .split .lead{color:var(--text);font-size:clamp(1.06rem,1.4vw,1.22rem);font-weight:300;line-height:1.5}
 .h-sm{font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.06;margin:.4em 0 .5em}
+
+/* the way out of the sample: the same link, in the sticky header, on every page */
+.nav-links{flex-wrap:wrap;row-gap:2px}
+.nav-links a.exit{color:var(--ice);border:1px solid rgba(124,199,232,.4);border-radius:999px;padding:5px 12px;white-space:nowrap}
+.nav-links a.exit::after{display:none}
+.nav-links a.exit:hover{background:rgba(124,199,232,.14);border-color:rgba(124,199,232,.7)}

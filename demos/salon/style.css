@@ -243,3 +243,8 @@ section{padding:68px 0}
   html{scroll-behavior:auto}
   *{transition-duration:.01ms !important;animation-duration:.01ms !important}
 }
+
+/* the way out of the sample: the same link, in the sticky header, on every page */
+.nav-links{flex-wrap:wrap;row-gap:2px}
+.nav-links a.exit{color:var(--brass);border:1px solid rgba(194,160,107,.45);border-radius:2px;padding:6px 11px;letter-spacing:.14em;white-space:nowrap}
+.nav-links a.exit:hover{background:var(--brass);border-color:var(--brass);color:var(--ink)}
