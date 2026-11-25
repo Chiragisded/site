@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  :root{--ink:#0d0f0d;--card:#151814;--line:rgba(255,255,255,.09);--text:#eceae4;--muted:#9d9f98;--muted2:#8e908a;--accent:#c8f24e}
+  :root{--ink:#0d0f0d;--card:#151814;--glass:rgba(16,19,16,.36);--line:rgba(255,255,255,.09);--text:#eceae4;--muted:#9d9f98;--muted2:#8e908a;--accent:#c8f24e}
   *{box-sizing:border-box}
   body{margin:0;background-color:var(--ink);
     /* static grain fallback; the canvas takes over when dots.js runs */
@@ -100,6 +100,18 @@
     .contact .btn{width:100%;margin:0 0 10px}
   }
   @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms !important;animation-duration:.01ms !important}}
+
+  /* glass, same recipe as the homepage: the dot field stays visible behind each
+     panel, blurred, instead of being hidden by a solid card */
+  .sample,.note,.contact{
+    background:var(--glass);
+    background-clip:padding-box;
+    -webkit-backdrop-filter:blur(2px) brightness(1.35) saturate(120%);
+    backdrop-filter:blur(2px) brightness(1.35) saturate(120%);
+  }
+  @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+    .sample,.note,.contact{background:var(--card)}
+  }
 </style>
 </head>
 <body>
