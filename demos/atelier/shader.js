@@ -99,7 +99,11 @@ export function initShader(canvas, options) {
   const uTime = gl.getUniformLocation(program, 'uTime');
   const uMouse = gl.getUniformLocation(program, 'uMouse');
 
-  const dpr = Math.min(window.devicePixelRatio || 1, 1.6);
+  /* the smoke is soft, so it is rendered below device resolution and at 30fps:
+     a full-viewport noise field costs far too much to run at native dpi */
+  const dpr = Math.min(window.devicePixelRatio || 1, 1.6) * 0.7;
+  const FRAME = 1000 / 30;
+  let lastDraw = 0;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let mx = 0.5, my = 0.5, tx = 0.5, ty = 0.5, raf = 0, visible = true;
   const t0 = performance.now();
@@ -125,7 +129,10 @@ export function initShader(canvas, options) {
   }
 
   function loop(time) {
-    draw(time);
+    if (time - lastDraw >= FRAME) {
+      draw(time);
+      lastDraw = time;
+    }
     raf = requestAnimationFrame(loop);
   }
   const start = () => {

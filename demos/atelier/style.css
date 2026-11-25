@@ -1,7 +1,7 @@
 :root{color-scheme:dark;--void:#07080a;--ink:#0b0d11;--panel:#101319;--text:#eceae4;--muted:#9d9fa2;--dim:#6f7378;--line:rgba(255,255,255,.13);--soft:rgba(255,255,255,.065);--ice:#7cc7e8;--sand:#d8c3a5;--radius:3px;--ease:cubic-bezier(.22,1,.36,1);--display:'Fraunces',Georgia,'Times New Roman',serif;--body:'Manrope','Helvetica Neue',Arial,sans-serif;--mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;--edge:clamp(20px,4.4vw,56px);--measure:58ch;}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:var(--void)}
-body{margin:0;background:var(--void);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.62;font-weight:400;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:rgba(124,199,232,.15);overflow-x:hidden;}
+body{margin:0;background:transparent;color:var(--text);font-family:var(--body);font-size:17px;line-height:1.62;font-weight:400;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:rgba(124,199,232,.15);overflow-x:hidden;}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 h1,h2,h3,h4{font-family:var(--display);font-weight:300;letter-spacing:-.025em;line-height:1.08;text-wrap:balance;margin:0}
@@ -39,9 +39,12 @@ em{font-style:italic}
 .btn--ghost{background:transparent}
 .nav .btn{padding:10px 18px;font-size:.82rem}
 .btn .arw{font-size:.9em;opacity:.7}
-.hero{position:relative;isolation:isolate;overflow:hidden;min-height:min(100svh,940px);display:flex;align-items:flex-end;padding:clamp(110px,15vh,190px) 0 clamp(38px,6vh,68px);background:radial-gradient(120% 90% at 70% 10%,#152030 0%,#0b0e14 45%,var(--void) 100%);}
-.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-2;display:block}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(130% 70% at 50% 0%,rgba(7,8,10,0) 35%,rgba(7,8,10,.42) 80%,var(--void) 100%),linear-gradient(to top,var(--void) 1%,rgba(7,8,10,.3) 34%,rgba(7,8,10,0) 72%);}
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:min(100svh,940px);display:flex;align-items:flex-end;padding:clamp(110px,15vh,190px) 0 clamp(38px,6vh,68px);background:radial-gradient(120% 90% at 70% 10%,rgba(21,32,48,.55) 0%,rgba(11,14,20,.42) 45%,rgba(7,8,10,.10) 100%);}
+/* the smoke sits behind the whole page, not just the hero */
+.smoke{position:fixed;inset:0;width:100%;height:100%;z-index:-2;display:block;pointer-events:none}
+/* veil: keeps the plume visible everywhere but dark enough for white body copy */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(7,8,10,.40),rgba(7,8,10,.56) 32%,rgba(7,8,10,.58) 70%,rgba(7,8,10,.66))}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(130% 70% at 50% 0%,rgba(7,8,10,0) 35%,rgba(7,8,10,.30) 80%,rgba(7,8,10,.55) 100%),linear-gradient(to top,rgba(7,8,10,.45) 1%,rgba(7,8,10,.22) 34%,rgba(7,8,10,0) 72%);}
 .hero-inner{width:100%;display:grid;gap:clamp(22px,3vw,34px)}
 .hero-eyebrow{color:#a9acae;display:flex;align-items:center;gap:12px}
 .hero-eyebrow::before{content:"";width:26px;height:1px;background:var(--ice);opacity:.8}

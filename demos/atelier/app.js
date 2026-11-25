@@ -258,10 +258,6 @@ try {
   /* the CSS gradient under the canvas stays as the fallback */
 }
 
-try {
-  const ctaCanvas = $('#shaderCta');
-  if (ctaCanvas) initShader(ctaCanvas, { variant: 'aurora' });
-} catch (err) {}
 
 if ($('#objects')) {
   try { initObjects($('#objects')).catch(() => {}); } catch (err) {}
