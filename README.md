@@ -6,12 +6,12 @@ Four demo websites for small businesses, built to show what a client actually ge
 
 | Path | What it is |
 |---|---|
-| `files/index.html` | My services and prices page |
-| `files/demos/index.html` | Hub page listing the four samples |
-| `files/demos/salon/` | Sample 1 — simple business site (₹12,000) |
-| `files/demos/coaching/` | Sample 2 — site with a working enquiry form (₹35,000) |
-| `files/demos/gym/` | Sample 3 — memberships with an online checkout (₹55,000) |
-| `files/demos/atelier/` | Sample 4 — premium, animation-led brand site |
+| `index.html` | My services and prices page |
+| `demos/index.html` | Hub page listing the four samples |
+| `demos/salon/` | Sample 1 — simple business site (₹12,000) |
+| `demos/coaching/` | Sample 2 — site with a working enquiry form (₹35,000) |
+| `demos/gym/` | Sample 3 — memberships with an online checkout (₹55,000) |
+| `demos/atelier/` | Sample 4 — premium, animation-led brand site |
 
 Every sample is a three-page site sharing one stylesheet per folder: home, a detail page, and a page where the customer does something (visit, book, pay, enquire).
 
@@ -43,8 +43,9 @@ The animation libraries load from a CDN at runtime. If they fail, or the visitor
 1. Push this repo to GitHub.
 2. Repo → **Settings** → **Pages**.
 3. Source: **Deploy from a branch**, Branch: `main`, folder `/ (root)`.
-4. After a minute the samples appear at:
-   `https://<your-username>.github.io/<repo-name>/files/demos/`
+4. After a minute the site appears at:
+   `https://chiragisded.github.io/site/`
+   (any repo works the same way: `<username>.github.io/<repo-name>/`)
 
 Send that link to businesses — it works on any phone.
 

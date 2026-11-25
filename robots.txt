@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chiragisded.github.io/website-samples/sitemap.xml
+Sitemap: https://chiragisded.github.io/site/sitemap.xml

@@ -3,26 +3,803 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chirag — websites for small businesses</title>
-<meta http-equiv="refresh" content="0; url=files/index.html">
-<link rel="canonical" href="files/index.html">
+<title>Chirag — websites for small businesses in Mumbai &amp; Navi Mumbai</title>
+<meta name="description" content="I build websites for small businesses in Mumbai and Navi Mumbai. Fixed price upfront: enquiry forms, a customer database, online payments and bookings — a site you own.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="canonical" href="https://chiragisded.github.io/site/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chirag — websites for small businesses in Mumbai &amp; Navi Mumbai">
+<meta property="og:description" content="I build websites for small businesses in Mumbai and Navi Mumbai. Fixed price upfront: enquiry forms, a database, online payments and a site you own.">
+<meta property="og:url" content="https://chiragisded.github.io/site/">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://chiragisded.github.io/site/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Chirag — websites for small businesses in Mumbai and Navi Mumbai. From ₹12,000.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chirag — websites for small businesses in Mumbai &amp; Navi Mumbai">
+<meta name="twitter:description" content="I build websites for small businesses in Mumbai and Navi Mumbai. Fixed price upfront: enquiry forms, a database, online payments and a site you own.">
+<meta name="twitter:image" content="https://chiragisded.github.io/site/og-image.png">
+<meta name="twitter:image:alt" content="Chirag — websites for small businesses in Mumbai and Navi Mumbai. From ₹12,000.">
+<!--
+  ─────────────────────────────────────────────────────────────
+  NOTHING LEFT TO CHANGE — the page is ready to send.
+  All buttons open WhatsApp on +91 90049 10077.
+  The email is already in the contact box, the footer and the
+  "Who you're dealing with" block near the bottom.
+
+  Prices are set to:
+    Basic site        From ₹12,000
+    Database/booking  From ₹35,000
+    Payments/shop     From ₹55,000
+  If you change one, change it in TWO places: the card near the
+  top and the table near the bottom.
+  ─────────────────────────────────────────────────────────────
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  :root{color-scheme:dark}
-  body{margin:0;min-height:100svh;display:grid;place-items:center;padding:28px;background:#07080a;color:#eceae4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Manrope,Arial,sans-serif;text-align:center}
-  main{max-width:40ch}
-  .mark{display:inline-block;margin-bottom:20px;padding:9px 14px;border:1px solid rgba(124,199,232,.35);background:rgba(124,199,232,.08);font-family:ui-monospace,Menlo,monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:#7cc7e8}
-  h1{margin:0 0 .5em;font-size:clamp(1.35rem,4vw,1.8rem);font-weight:400;line-height:1.2;letter-spacing:-.02em}
-  p{margin:0 0 .9em;color:#9d9fa2;font-size:.94rem;line-height:1.6}
-  p:last-child{margin-bottom:0}
-  a{color:#7cc7e8;text-underline-offset:3px}
+  :root{
+    --ink:#0d0f0d;
+    --card:#151814;
+    --line:rgba(255,255,255,.09);
+    --text:#eceae4;
+    --muted:#9d9f98;
+    --accent:#c8f24e;
+    --radius:4px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  ::selection{background:rgba(200,242,78,.24);color:#0d0f0d}
+  :where(a,button,summary,input,textarea,select):focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  main{counter-reset:sec}
+  section{counter-increment:sec}
+  .kicker::before{content:counter(sec,decimal-leading-zero) " — ";color:var(--muted)}
+  .about .kicker::before{content:none}
+  p{text-wrap:pretty}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400;letter-spacing:-.01em}
+
+  /* nav */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(13,15,13,.82);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;letter-spacing:.02em;text-decoration:none}
+  .dot{width:8px;height:8px;border-radius:2px;background:var(--accent)}
+  .navlinks{display:flex;gap:26px;font-size:14.5px;color:var(--muted)}
+  .navlinks a{text-decoration:none;transition:color .2s}
+  .navlinks a:hover{color:var(--text)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 22px;border-radius:3px;font-size:15px;font-weight:500;
+    text-decoration:none;border:1px solid transparent;transition:transform .18s ease, background .2s, color .2s, border-color .2s;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn-accent{background:var(--accent);color:#101405}
+  .btn-accent:hover{background:#d5fb6d}
+  .btn-ghost{border-color:rgba(255,255,255,.18);color:var(--text)}
+  .btn-ghost:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.04)}
+  .nav .btn{padding:10px 18px;font-size:14px}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:96px 0 72px}
+  .hero::before{
+    content:'';position:absolute;inset:-40% -10% auto -10%;height:120%;
+    background:radial-gradient(60% 50% at 50% 0%, rgba(200,242,78,.10), transparent 70%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+    border:1px solid var(--line);border-radius:2px;padding:7px 14px;margin-bottom:30px;
+  }
+  h1{
+    font-family:'Instrument Serif',Georgia,serif;font-weight:400;
+    font-size:clamp(2.9rem,6.6vw,5rem);
+    line-height:1;letter-spacing:-.018em;
+    margin:0 0 24px;max-width:16ch;
+  }
+  h1 em{font-style:italic;color:var(--accent)}
+  .lede{font-size:clamp(1.02rem,1.6vw,1.2rem);color:#c3c4bd;max-width:56ch;margin:0 0 38px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .under-cta{font-size:13.5px;color:var(--muted);margin-top:18px}
+
+  .strip{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    margin-top:78px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--line);
+  }
+  .strip div{background:var(--ink);padding:22px 20px}
+  .strip b{display:block;font-size:15px;font-weight:500;margin-bottom:3px}
+  .strip span{font-size:13.5px;color:var(--muted)}
+
+  /* sections */
+  section{padding:88px 0}
+  .sec-head{max-width:640px;margin-bottom:52px}
+  .kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
+  h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(2rem,3.9vw,3.05rem);line-height:1.04;letter-spacing:-.012em;font-weight:400;margin:0 0 16px}
+  .sec-head p{color:var(--muted);margin:0;font-size:16.5px}
+
+  /* one hairline-divided block, not three floating cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;border:1px solid var(--line);border-radius:var(--radius);background:var(--line);overflow:hidden}
+  .card[id]{scroll-margin-top:96px}
+  .card{
+    background:var(--ink);
+    padding:34px 30px;display:flex;flex-direction:column;
+  }
+  .card h3{font-size:19.5px;font-weight:600;letter-spacing:-.01em;margin:0 0 6px}
+  .card .tag{font-size:12.5px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+  .card p.small{color:var(--muted);font-size:15px;margin:0 0 20px}
+  .card ul{list-style:none;padding:0;margin:0 0 26px;font-size:15px;color:#d4d5cf}
+  .card li{position:relative;padding-left:22px;margin-bottom:9px}
+  .card li::before{content:'';position:absolute;left:0;top:9px;width:11px;height:1.5px;background:var(--accent)}
+  .price{margin-top:auto;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+  .price b{display:block;font-size:24px;font-weight:500;color:var(--text);letter-spacing:-.02em;margin-bottom:2px}
+  .card-cta{margin-top:16px;width:100%}
+
+  /* terms, sitting right under the price cards */
+  .terms{margin-top:26px;border:1px solid var(--line);border-radius:var(--radius);padding:30px 32px;background:var(--card)}
+  .terms-title{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 20px}
+  .terms ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px 30px}
+  .terms b{display:block;font-size:15px;font-weight:500;margin-bottom:4px}
+  .terms span{display:block;color:var(--muted);font-size:14px;line-height:1.6}
+
+  /* what to send me, under the terms: the two weeks are waiting on this */
+  .sendlist{margin-top:16px;border:1px solid var(--line);border-radius:var(--radius);padding:30px 32px;background:var(--ink)}
+  .sendlist ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:12px 30px}
+  .sendlist li{position:relative;padding-left:26px;font-size:15px;line-height:1.55;color:var(--muted)}
+  .sendlist li::before{content:'';position:absolute;left:2px;top:7px;width:11px;height:6px;border-left:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent);transform:rotate(-45deg)}
+  .sendlist b{font-weight:500;color:var(--text)}
+  .sendlist-note{margin:22px 0 0;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;line-height:1.6}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:34px 30px}
+  .step .num{
+    font-family:'Instrument Serif',Georgia,serif;font-size:34px;color:var(--accent);
+    line-height:1;display:block;margin-bottom:14px;
+  }
+  .step h3{font-size:17px;font-weight:600;margin:0 0 8px}
+  .step p{color:var(--muted);font-size:15px;margin:0}
+
+  /* about */
+  .about{
+    display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;
+    border:1px solid var(--line);border-radius:var(--radius);padding:46px;background:transparent;
+  }
+  .about h2{margin-bottom:18px}
+  .about p{color:#c6c7c0;margin:0 0 14px;font-size:16px}
+  .about .fine{font-size:14px;color:var(--muted);margin:0}
+  .facts{list-style:none;padding:0;margin:0;font-size:15px}
+  .facts li{border-top:1px solid var(--line);padding:16px 0;display:flex;justify-content:space-between;gap:16px}
+  .facts li:last-child{border-bottom:1px solid var(--line)}
+  .facts span{color:var(--muted)}
+
+  /* proof / testimonials */
+  .proofs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;border:1px solid var(--line);border-radius:var(--radius);background:var(--line);overflow:hidden}
+  .proof{background:var(--ink);padding:28px;display:flex;flex-direction:column}
+  .proof .tag{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+  .proof h3{font-size:18px;font-weight:600;letter-spacing:-.01em;margin:0 0 8px}
+  .proof p{color:var(--muted);font-size:14.5px;line-height:1.6;margin:0 0 20px;flex:1}
+  .proof a{font-size:14px;color:var(--text);text-decoration:none;border-bottom:1px solid rgba(200,242,78,.5);padding-bottom:2px;align-self:flex-start}
+  .proof a:hover{color:var(--accent)}
+  .proof-note{margin:22px 0 0;font-size:14.5px;color:var(--muted)}
+  .proof-note a{color:var(--text);text-decoration:underline;text-underline-offset:3px}
+
+  /* running costs */
+  .costs{
+    list-style:none;padding:0;margin:0;
+    border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--card);overflow:hidden;
+  }
+  .costs li{
+    display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+    padding:20px 26px;border-top:1px solid var(--line);font-size:15.5px;
+  }
+  .costs li:first-child{border-top:0}
+  .costs b{font-weight:500;display:block}
+  .costs small{display:block;color:var(--muted);font-size:13.5px;margin-top:4px;line-height:1.5}
+  .costs em{font-style:normal;color:var(--accent);white-space:nowrap;font-size:15px}
+  .costs a{color:var(--text);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.25)}
+  .cost-note{color:var(--muted);font-size:14px;margin:18px 0 0;max-width:72ch}
+
+  /* faq */
+  details{border-top:1px solid var(--line);padding:22px 0}
+  details:last-of-type{border-bottom:1px solid var(--line)}
+  summary{
+    cursor:pointer;list-style:none;font-size:16.5px;font-weight:500;
+    display:flex;justify-content:space-between;gap:20px;align-items:center;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:'+';color:var(--accent);font-size:22px;line-height:1;transition:transform .2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{color:var(--muted);font-size:15.5px;margin:14px 30px 0 0;max-width:78ch}
+
+  /* contact */
+  .contact{
+    position:relative;overflow:hidden;text-align:center;
+    border:1px solid var(--line);border-radius:var(--radius);padding:68px 32px;
+    background:var(--card);
+    box-shadow:inset 0 1px 0 rgba(200,242,78,.22);
+  }
+  .contact h2{max-width:20ch;margin:0 auto 18px}
+  .contact p{color:var(--muted);margin:0 auto 34px;max-width:52ch}
+  .contact .btn{margin:0 6px}
+  .contact .alt{margin-top:30px;font-size:14.5px;color:var(--muted)}
+  .contact .alt a{color:var(--text);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.25)}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;font-size:14px;color:var(--muted)}
+  .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  @media (max-width:860px){
+    .navlinks{display:none}
+    .strip{grid-template-columns:1fr 1fr}
+    .about{grid-template-columns:1fr;gap:32px;padding:32px}
+    section{padding:64px 0}
+    .hero{padding:64px 24px 48px}
+    .contact{padding:56px 22px}
+  }
+  @media (max-width:520px){
+    .strip{grid-template-columns:1fr}
+    .costs li{flex-direction:column;gap:6px;padding:18px 20px}
+    .contact .btn{width:100%;margin:0 0 12px}
+    .terms,.sendlist{padding:24px 20px}
+  }
+  /* sticky mobile quote bar */
+  .sticky-cta{display:none}
+  @media (max-width:700px){
+    .sticky-cta{
+      display:flex;align-items:center;justify-content:center;
+      position:fixed;left:16px;right:16px;bottom:8px;z-index:60;
+      padding:8px 14px;border-radius:3px;
+      background:var(--accent);color:#101405;
+      font-size:14px;line-height:1.3;font-weight:600;text-decoration:none;
+      box-shadow:0 6px 18px rgba(0,0,0,.5), 0 0 0 1px rgba(200,242,78,.35);
+    }
+    body{padding-bottom:66px}
+    .nav .btn{display:none}
+  }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://chiragisded.github.io/site/#business",
+  "name": "Chirag — websites for small businesses",
+  "alternateName": "chiragbuilds",
+  "legalName": "Chirag Dinesh Salian",
+  "email": "chiragsalian1601@gmail.com",
+  "description": "Websites for small businesses in Mumbai and Navi Mumbai. Fixed-price builds, with enquiry forms, bookings, databases and online payments.",
+  "url": "https://chiragisded.github.io/site/",
+  "telephone": "+919004910077",
+  "priceRange": "₹12,000 - ₹55,000",
+  "currenciesAccepted": "INR",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Navi Mumbai",
+    "addressRegion": "Maharashtra",
+    "addressCountry": "IN"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Mumbai" },
+    { "@type": "City", "name": "Navi Mumbai" }
+  ],
+  "serviceType": ["Small business website", "Website with database", "Online payments and booking website"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Website packages",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "position": 1,
+        "name": "A proper business website",
+        "description": "A 4–6 page business website with services, prices, hours and location, and a contact form that emails every enquiry.",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 12000,
+          "priceCurrency": "INR"
+        },
+        "itemOffered": {
+          "@type": "Service",
+          "name": "A proper business website",
+          "serviceType": "Small business website",
+          "description": "For a shop, salon, tradesperson or clinic that people search for and find nothing.",
+          "provider": { "@id": "https://chiragisded.github.io/site/#business" },
+          "areaServed": [
+            { "@type": "City", "name": "Mumbai" },
+            { "@type": "City", "name": "Navi Mumbai" }
+          ]
+        }
+      },
+      {
+        "@type": "Offer",
+        "position": 2,
+        "name": "Website with a database",
+        "description": "The business website plus enquiries saved to a database in your name, with email alerts and a way to view, search and export them.",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 35000,
+          "priceCurrency": "INR"
+        },
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Website with a database",
+          "serviceType": "Website with database",
+          "description": "For businesses whose enquiries, bookings or applications need to be tracked instead of lost in an inbox.",
+          "provider": { "@id": "https://chiragisded.github.io/site/#business" },
+          "areaServed": [
+            { "@type": "City", "name": "Mumbai" },
+            { "@type": "City", "name": "Navi Mumbai" }
+          ]
+        }
+      },
+      {
+        "@type": "Offer",
+        "position": 3,
+        "name": "Selling and payments",
+        "description": "The business website plus Razorpay or PayU set up in your name, with deposits, orders and receipts saved to your database.",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 55000,
+          "priceCurrency": "INR"
+        },
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Selling and payments",
+          "serviceType": "Online payments and booking website",
+          "description": "For businesses taking deposits or orders online without a shop till.",
+          "provider": { "@id": "https://chiragisded.github.io/site/#business" },
+          "areaServed": [
+            { "@type": "City", "name": "Mumbai" },
+            { "@type": "City", "name": "Navi Mumbai" }
+          ]
+        }
+      }
+    ]
+  }
+}
+</script>
 </head>
 <body>
-<main>
-  <span class="mark">Chirag · Mumbai</span>
-  <h1>Websites for small businesses</h1>
-  <p>Taking you to the prices page…</p>
-  <p><a href="files/index.html">Open prices</a> · <a href="files/demos/index.html">See the four samples</a></p>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span class="dot"></span>Chirag</a>
+    <nav class="navlinks">
+      <a href="#services">What I build</a>
+      <a href="#about">About</a>
+      <a href="#running">Running costs</a>
+      <a href="demos/index.html">Sample sites</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-accent" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%27d%20like%20a%20quote%20for%20a%20website.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%20%2B%20prices%20%2B%20area%3B%20hours%20%2B%205%E2%80%9310%20photos%3B%20logo%2Fwording%20if%20I%20have%20them%3B%20the%20domain%20I%20want.%20My%20business%20is%3A%20">Get a free quote</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="wrap hero">
+    <div class="eyebrow"><span class="dot"></span>Available for new projects · Mumbai &amp; Navi Mumbai</div>
+    <h1>Your customers are searching. <em>Make sure they find you.</em></h1>
+    <p class="lede">
+      I build websites for small businesses that don't have one yet — clean, fast, phone-friendly, and set up with the
+      things you actually need: enquiry forms, a customer database, online payments and bookings. Fixed price, agreed
+      before I start.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-accent" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%27d%20like%20a%20quote%20for%20a%20website.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%20%2B%20prices%20%2B%20area%3B%20hours%20%2B%205%E2%80%9310%20photos%3B%20logo%2Fwording%20if%20I%20have%20them%3B%20the%20domain%20I%20want.%20My%20business%20is%3A%20">Get a free quote</a>
+      <a class="btn btn-ghost" href="demos/index.html">See sample sites</a>
+    </div>
+    <p class="under-cta">No obligation. Tell me what your business does and I'll reply with a price and a timeline.</p>
+
+    <div class="strip">
+      <div><b>Fixed quotes</b><span>Price agreed up front, in writing.</span></div>
+      <div><b>Live in ~2 weeks</b><span>Most small sites, once content is ready.</span></div>
+      <div><b>You own everything</b><span>Domain, accounts and code in your name.</span></div>
+      <div><b>One person</b><span>You talk to me, not a call centre.</span></div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">What I build</p>
+        <h2>Three kinds of website.</h2>
+        <p>Most businesses start with the first and grow into the others. You can always add features later — nothing gets thrown away.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card" id="package-1">
+          <p class="tag">Be findable</p>
+          <h3>A proper business website</h3>
+          <p class="small">For a shop, salon, tradesperson or clinic that people search for and find nothing.</p>
+          <ul>
+            <li>4–6 pages that look right on phones</li>
+            <li>Your services, prices, hours and location on a map</li>
+            <li>Contact form that emails you every enquiry</li>
+            <li>Set up to appear on Google for your business name</li>
+          </ul>
+          <p class="price"><b>From ₹12,000</b>One-off. Domain and hosting from about ₹4,000 a year.</p>
+
+          <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B912%2C000%20package%20%E2%80%94%20a%20proper%20business%20website.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%20%2B%20prices%20%2B%20area%3B%20hours%20%2B%205%E2%80%9310%20photos%3B%20logo%2Fwording%20if%20I%20have%20them%3B%20the%20domain%20I%20want.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
+
+        <div class="card" id="package-2">
+          <p class="tag">Handle enquiries properly</p>
+          <h3>Website with a database</h3>
+          <p class="small">When enquiries, bookings or applications need to be tracked instead of lost in your inbox.</p>
+          <ul>
+            <li>Everything in the first package</li>
+            <li>Enquiries saved to a database, not just an inbox</li>
+            <li>Database set up in your name — Supabase, Firebase or MySQL</li>
+            <li>I show you how to view, search and export your enquiries</li>
+            <li>Email alert to you for every new enquiry</li>
+            <li>A staff login area can be added — we scope it on the call</li>
+          </ul>
+          <p class="price"><b>From ₹35,000</b>One-off. Includes 30 days of fixes after launch.</p>
+
+          <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B935%2C000%20package%20%E2%80%94%20a%20website%20with%20a%20database.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%20%2B%20prices%20%2B%20area%3B%20hours%20%2B%205%E2%80%9310%20photos%3B%20logo%2Fwording%20if%20I%20have%20them%3B%20the%20domain%20I%20want.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
+
+        <div class="card" id="package-3">
+          <p class="tag">Get paid online</p>
+          <h3>Selling and payments</h3>
+          <p class="small">For anyone taking deposits or orders online, without a shop till.</p>
+          <ul>
+            <li>A proper business website (the first package) — 4–6 pages, contact form, Google listing for the business name</li>
+            <li>Razorpay or PayU set up in your name — UPI, cards and netbanking</li>
+            <li>Deposits, fixed-price services or a small order</li>
+            <li>Orders saved in a database in your name (the same database from the second package, or your existing one)</li>
+            <li>Receipts and confirmation emails sent by the gateway</li>
+            <li>Orders and payments you can see in the gateway dashboard</li>
+            <li>Refunds you can issue yourself from the same dashboard</li>
+          </ul>
+          <p class="price"><b>From ₹55,000</b>One-off. Payment gateway fees are charged by them, not by me.</p>
+
+          <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B955%2C000%20package%20%E2%80%94%20selling%20and%20payments%20online.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%20%2B%20prices%20%2B%20area%3B%20hours%20%2B%205%E2%80%9310%20photos%3B%20logo%2Fwording%20if%20I%20have%20them%3B%20the%20domain%20I%20want.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
+      </div>
+
+      <div class="terms">
+        <p class="terms-title">The money, the revisions, the timeline</p>
+        <ul>
+          <li>
+            <b>Half to start, half at launch.</b>
+            <span>50% books the slot and covers the build; the other 50% is due when the site goes live on your domain. Nothing is charged before the quote is agreed in writing.</span>
+          </li>
+          <li>
+            <b>Two rounds of revisions.</b>
+            <span>You review the first version, I make your changes, you review again. Further rounds, or a change of direction, are quoted before I start them.</span>
+          </li>
+          <li>
+            <b>About two weeks.</b>
+            <span>From the day your text, photos and logo are with me — not from the kickoff call. Most small sites land inside that. Bigger builds get their own date, in writing.</span>
+          </li>
+          <li>
+            <b>Extras are quoted first.</b>
+            <span>New pages, extra languages, a booking calendar, a staff login: anything outside the agreed scope gets a price before it gets built.</span>
+          </li>
+          <li>
+            <b>No GST on top.</b>
+            <span>I'm not GST-registered, so no tax is added to the quote. The price you agree is the whole amount.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sendlist">
+        <p class="terms-title">What to send me — the two weeks start when this arrives</p>
+        <ul>
+          <li><b>Your details</b> — business name, address, phone, WhatsApp.</li>
+          <li><b>What you sell</b> — services with prices, and the area you serve.</li>
+          <li><b>Hours and photos</b> — opening hours, 5–10 photos. Phone photos are fine.</li>
+          <li><b>Logo and wording</b> — if you have them.</li>
+          <li><b>The domain</b> — the name you want, or let me suggest three free ones.</li>
+        </ul>
+        <p class="sendlist-note">Send them in one WhatsApp message and the two-week clock starts that day. Missing something? Send what you have — I'll say what's still needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">How it works</p>
+        <h2>Four steps, no jargon.</h2>
+        <p>You don't need to know any technical words. I'll explain everything in plain English and do the technical part.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>A 15-minute call</h3>
+          <p>Free. You tell me about the business, I ask a few questions. If I'm not the right fit, I'll say so.</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>Fixed quote and plan</h3>
+          <p>One page: exactly what you get, the price, and the date it will be live. Half up front, half at launch.</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>I build it</h3>
+          <p>You see a preview in the first week and tell me what to change. Two rounds of changes are included.</p>
+        </div>
+        <div class="step">
+          <span class="num">04</span>
+          <h3>Launch and handover</h3>
+          <p>I put it live, then show you how to update your own text and photos. Everything is in your name.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="about">
+        <div>
+          <p class="kicker">About me</p>
+          <h2>I'm Chirag. I build these myself.</h2>
+          <p>
+            I'm a web developer based in Navi Mumbai, working across Mumbai and Navi Mumbai. I work with small businesses — the kind that have built something
+            real without ever needing a website, and now do. I handle the design, the build, the database and the
+            payment setup personally, so there's one person responsible for the whole thing.
+          </p>
+          <p class="fine">
+            Straight answers: no monthly retainer unless you want one, no surprise invoices, and no holding your
+            website hostage if you ever want to move it.
+          </p>
+        </div>
+        <ul class="facts">
+          <li><b>Small business websites</b><span>From ₹12,000</span></li>
+          <li><b>Typical build time</b><span>1–3 weeks</span></li>
+          <li><b>Payment</b><span>50% up front</span></li>
+          <li><b>Changes after launch</b><span>Included for 30 days</span></li>
+          <li><b>Based in</b><span>Navi Mumbai · also working remotely</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="proof">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Proof</p>
+        <h2>Four sites you can open right now.</h2>
+        <p>No client quotes yet. I'm early in this and I won't invent any. What I do have is four complete sites I built end to end: the businesses in them are invented, the forms, the database and the payment flow are real. Open one on your phone and judge the build before you message me.</p>
+      </div>
+
+      <div class="proofs">
+        <div class="proof">
+          <p class="tag">Package 1 · from ₹12,000</p>
+          <h3>Neem Salon &amp; Spa</h3>
+          <p>Four pages, a full price list, opening hours, a map and a booking button that opens WhatsApp.</p>
+          <a href="demos/salon/index.html">Open the salon site →</a>
+        </div>
+
+        <div class="proof">
+          <p class="tag">Package 2 · from ₹35,000</p>
+          <h3>Bright Minds Classes</h3>
+          <p>Enquiries saved to a database instead of lost in a DM, with a free-trial booking form.</p>
+          <a href="demos/coaching/index.html">Open the tuition site →</a>
+        </div>
+
+        <div class="proof">
+          <p class="tag">Package 3 · from ₹55,000</p>
+          <h3>Iron Yard Fitness</h3>
+          <p>Plans side by side, online joining by UPI or card, and a receipt in the member's inbox.</p>
+          <a href="demos/gym/index.html">Open the gym site →</a>
+        </div>
+
+        <div class="proof">
+          <p class="tag">Custom quote</p>
+          <h3>Sable &amp; Stone</h3>
+          <p>A studio brand site where the type, the scroll and the photographs do the selling.</p>
+          <a href="demos/atelier/index.html">Open the studio site →</a>
+        </div>
+      </div>
+
+      <p class="proof-note">All four, side by side, with what each one fixes and what the owner would need to hand over: <a href="demos/index.html">sample sites</a>.</p>
+    </div>
+  </section>
+
+  <section id="running">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Running costs</p>
+        <h2>What it costs to keep it online.</h2>
+        <p>Nothing hidden after launch. These are the only ongoing costs, every account is opened in your name, and you pay the provider directly — not me.</p>
+      </div>
+
+      <ul class="costs">
+        <li>
+          <div><b>Domain name (.in or .com)</b><small>Your address on the internet. Renews every year.</small></div>
+          <em>₹500 – ₹1,500 a year</em>
+        </li>
+        <li>
+          <div><b>Hosting</b><small>Where the site lives. Free if we use a modern free platform — which suits most small sites.</small></div>
+          <em>₹0 – ₹3,000 a year</em>
+        </li>
+        <li>
+          <div><b>SSL / the padlock</b><small>So the site shows as secure and Google doesn't warn visitors.</small></div>
+          <em>Free</em>
+        </li>
+        <li>
+          <div><b>Business email on your domain</b><small>Optional — you can keep using your existing email instead.</small></div>
+          <em>₹0 – ₹900 a year</em>
+        </li>
+        <li>
+          <div><b>Payment gateway</b><small>Only if you take payments online. Razorpay/PayU take a small cut per transaction; no monthly fee and no setup cost.</small></div>
+          <em>~2% per payment</em>
+        </li>
+      </ul>
+
+      <p class="cost-note">In practice that's about <strong style="color:var(--text);font-weight:500">₹2,000 – ₹4,500 a year</strong> to keep a typical site running. My build fee is separate and one-off, and the payment gateway's fee is about 2.36% of each payment — 2% plus GST — deducted by the gateway from what you receive. That comes out of the sale, not out of your build fee.</p>
+    </div>
+  </section>
+
+  <section id="scope">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">What I don't do</p>
+        <h2>Three things that aren't in the price.</h2>
+        <p>Saying it here is faster than saying it on the call.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>No apps or logins in the base price</h3>
+          <p>These are websites. A staff or customer login area is a separate job, quoted separately.</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>No writing or photography</h3>
+          <p>I build with your words and pictures. I'll tidy a rough draft, but I don't write your copy or shoot your shop.</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>No monthly retainer unless you ask</h3>
+          <p>Thirty days of fixes come with the build. After that the site is yours, and the care plan is optional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="terms">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Terms, in plain English</p>
+        <h2>How the money and the dates work.</h2>
+        <p>This is the whole agreement, not a summary of one.</p>
+      </div>
+      <ul class="costs">
+        <li><div><b>Half now, half at launch</b><small>50% to start the work, the rest when the site goes live.</small></div></li>
+        <li><div><b>One fixed price</b><small>The quote doesn't move unless you ask for something extra, and then I price that separately before doing it.</small></div></li>
+        <li><div><b>Two rounds of changes</b><small>A round is one list of changes, sent together. Two are included before launch.</small></div></li>
+        <li><div><b>If your words and photos are late</b><small>The launch date moves with them. I'll tell you the new date instead of leaving you guessing.</small></div></li>
+        <li><div><b>The first thirty days</b><small>Fixes are free: anything broken, or not as we agreed. New pages or new features are quoted.</small></div></li>
+        <li><div><b>If you want to stop</b><small>Before I start, the advance comes back in full. Once I've started, you pay for the work done up to that day and the rest of the advance comes back — I'll show you what already exists. Refunds go back the way they came, within seven days of us agreeing the amount. After launch the site is yours, and the balance isn't refundable.</small></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Questions</p>
+        <h2>The things people ask first.</h2>
+      </div>
+
+      <details>
+        <summary>How much does a website actually cost?</summary>
+        <p>Most small business sites come in between ₹12,000 and ₹55,000 depending on whether you need a database, bookings or payments. You get one fixed price in writing before any work starts, so the number never moves unless you ask for something extra.</p>
+      </details>
+      <details>
+        <summary>How long does it take?</summary>
+        <p>Usually one to three weeks. The main thing that slows a project down is waiting for your text and photos, so once I have those, most sites are live within two weeks.</p>
+      </details>
+      <details>
+        <summary>Do I own the website?</summary>
+        <p>Yes. The domain, the hosting account, the code and any payment account are all registered in your name. If you ever want to work with someone else, you take everything with you — no permission needed from me.</p>
+      </details>
+      <details>
+        <summary>Can you take card payments?</summary>
+        <p>Yes. I set up Razorpay or PayU in your name, so customers can pay by UPI, card or netbanking — a deposit, a fixed price, or a small order. The gateway sends the receipt and confirmation email, and you can issue refunds from its own dashboard. It charges around 2% per transaction; that's their fee, not mine.</p>
+      </details>
+      <details>
+        <summary>Can my staff log in to the site?</summary>
+        <p>Yes, a staff login area can be added. It's quoted separately, because the work depends on what your staff need to see and do. We talk it through on the call.</p>
+      </details>
+      <details>
+        <summary>I already have a website, but it's old. Can you redo it?</summary>
+        <p>Often, yes — and it's usually cheaper than starting over, because we keep your existing text and photos. Send me the address and I'll tell you honestly whether it's worth rebuilding.</p>
+      </details>
+      <details>
+        <summary>What happens after it goes live?</summary>
+        <p>Thirty days of fixes are included. After that you can update the text and photos yourself — I'll show you how on the call. If you'd rather not touch it, I offer a small monthly care plan, or you're free to manage it yourself.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Privacy, in plain English</p>
+        <h2>What this site knows about you.</h2>
+        <p>Nothing, until you message me. There is no form here, no tracking and no cookie banner, because there is nothing to consent to.</p>
+      </div>
+      <div class="terms">
+        <ul>
+          <li>
+            <b>No tracking, no cookies.</b>
+            <span>No analytics, no advertising pixels, no cookies of mine on any page. That is also why there is no consent banner.</span>
+          </li>
+          <li>
+            <b>What I keep.</b>
+            <span>Only what you send me on WhatsApp or say on a call — name, number, business details. It stays in that chat and on my phone; there is no database behind this site.</span>
+          </li>
+          <li>
+            <b>Who else loads a file.</b>
+            <span>The fonts come from Google, and the sample pages load their photos from Unsplash, so those two see your IP address as the page loads. Neither is told your name or number, and neither is given anything by me.</span>
+          </li>
+          <li>
+            <b>Getting rid of it.</b>
+            <span>One message and I delete our chat and anything you sent. Ask what I hold about you and I will tell you.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="seller">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Who you're dealing with</p>
+        <h2>One person, with his name on the quote.</h2>
+        <p>No agency, no sales team, no company behind this page. If something goes wrong there is exactly one person to reach, and this is how.</p>
+      </div>
+      <ul class="costs">
+        <li><div><b>Chirag Dinesh Salian</b><small>Freelance web designer, working as chiragbuilds. A sole freelancer, not a registered company.</small></div></li>
+        <li><div><b>Email</b><small><a href="mailto:chiragsalian1601@gmail.com">chiragsalian1601@gmail.com</a> — for quotes, invoices, refunds or a complaint.</small></div></li>
+        <li><div><b>Complaints</b><small>Send them to that same address with “Complaint” in the subject. I answer within a day, and it is me answering, not a support desk.</small></div></li>
+        <li><div><b>Phone and WhatsApp</b><small><a href="tel:+919004910077">+91 90049 10077</a>, weekdays 10am to 8pm.</small></div></li>
+        <li><div><b>Address for notices</b><small>chiragbuilds, Navi Mumbai, Maharashtra. Write to the email above and I'll reply with the full postal address.</small></div></li>
+        <li><div><b>GST</b><small>Not registered. The prices on this page are the whole amount, with no tax added.</small></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="wrap" style="padding-bottom:80px">
+    <div class="contact">
+      <h2>Tell me about your business.</h2>
+      <p>One message is enough: what you do, where you are, and what you wish your website could do. I'll reply with a price and a timeline — usually within a day.</p>
+      <a class="btn btn-accent" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%27d%20like%20a%20quote%20for%20a%20website.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%20%2B%20prices%20%2B%20area%3B%20hours%20%2B%205%E2%80%9310%20photos%3B%20logo%2Fwording%20if%20I%20have%20them%3B%20the%20domain%20I%20want.%20My%20business%20is%3A%20">WhatsApp me</a>
+      <a class="btn btn-ghost" href="tel:+919004910077">Call +91 90049 10077</a>
+      <p class="alt">Navi Mumbai · +91 90049 10077 · <a href="mailto:chiragsalian1601@gmail.com">chiragsalian1601@gmail.com</a> · WhatsApp is fastest</p>
+    </div>
+  </div>
+
 </main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Chirag Dinesh Salian · chiragbuilds</span>
+    <span>Mumbai &amp; Navi Mumbai · working with clients anywhere</span>
+  </div>
+</footer>
+
+<a class="sticky-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%27d%20like%20a%20quote%20for%20a%20website.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%20%2B%20prices%20%2B%20area%3B%20hours%20%2B%205%E2%80%9310%20photos%3B%20logo%2Fwording%20if%20I%20have%20them%3B%20the%20domain%20I%20want.%20My%20business%20is%3A%20">Get a free quote</a>
+
 </body>
 </html>
