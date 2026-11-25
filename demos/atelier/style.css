@@ -46,24 +46,18 @@ em{font-style:italic}
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(7,8,10,.40),rgba(7,8,10,.56) 32%,rgba(7,8,10,.58) 70%,rgba(7,8,10,.66))}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(130% 70% at 50% 0%,rgba(7,8,10,0) 35%,rgba(7,8,10,.30) 80%,rgba(7,8,10,.55) 100%),linear-gradient(to top,rgba(7,8,10,.45) 1%,rgba(7,8,10,.22) 34%,rgba(7,8,10,0) 72%);}
 .hero-inner{position:relative;z-index:2;width:100%;display:grid;gap:clamp(22px,3vw,34px)}
-/* a wireframe room turning slowly in the hero's open right half; it fills the
-   empty third of a wide screen and gives the fold some depth to look into */
+/* an axonometric cutaway of one room — floor, two sectioned walls, the furniture
+   lined up on the drawing board; it fills the empty third of a wide screen */
 .hero-room{display:none}
 @media (min-width:1280px){
-  .hero-room{display:block;position:absolute;right:4.5%;top:44%;width:min(30vw,400px);height:min(30vw,400px);transform:translateY(-50%);perspective:1100px;pointer-events:none;z-index:1}
-  .hero-room .room-glow{position:absolute;inset:6%;background:radial-gradient(50% 50% at 50% 58%,rgba(124,199,232,.20),rgba(216,195,165,.06) 45%,transparent 72%);filter:blur(8px)}
-  .hero-room .cube{position:absolute;left:50%;top:50%;width:236px;height:236px;margin:-118px 0 0 -118px;transform-style:preserve-3d;animation:roomTurn 52s linear infinite}
-  .hero-room .cube i{position:absolute;inset:0;border:1px solid rgba(124,199,232,.20);background:linear-gradient(150deg,rgba(124,199,232,.055),rgba(216,195,165,.018))}
-  .hero-room .cube i.grid{background-image:linear-gradient(to right,rgba(124,199,232,.16) 1px,transparent 1px),linear-gradient(to bottom,rgba(124,199,232,.16) 1px,transparent 1px);background-size:26px 26px}
-  .hero-room .cube i:nth-child(1){transform:translateZ(118px)}
-  .hero-room .cube i:nth-child(2){transform:rotateY(180deg) translateZ(118px)}
-  .hero-room .cube i:nth-child(3){transform:rotateY(90deg) translateZ(118px)}
-  .hero-room .cube i:nth-child(4){transform:rotateY(-90deg) translateZ(118px)}
-  .hero-room .cube i:nth-child(5){transform:rotateX(90deg) translateZ(118px)}
-  .hero-room .cube i:nth-child(6){transform:rotateX(-90deg) translateZ(118px)}
+  .hero-room{display:block;position:absolute;right:3.4%;top:42%;width:min(32vw,440px);transform:translateY(-50%);pointer-events:none;z-index:1}
+  .hero-room .room-glow{position:absolute;inset:-4% 2% 6%;background:radial-gradient(50% 50% at 52% 54%,rgba(124,199,232,.15),rgba(216,195,165,.05) 46%,transparent 74%);filter:blur(10px)}
+  .hero-room .room-draw{position:relative;display:block;width:100%;height:auto;opacity:.97}
+  .hero-room .lamp-glow{animation:roomBreathe 9s ease-in-out infinite alternate}
+  .hero-room .room-cap{display:flex;justify-content:space-between;gap:14px;margin:6px 0 0;padding-top:9px;border-top:1px solid rgba(216,195,165,.20);font-size:.55rem;letter-spacing:.17em;color:#8d9196;white-space:nowrap}
 }
-@keyframes roomTurn{from{transform:rotateX(-16deg) rotateY(0deg)}to{transform:rotateX(-16deg) rotateY(360deg)}}
-@media (prefers-reduced-motion:reduce){.hero-room .cube{animation:none;transform:rotateX(-16deg) rotateY(24deg)}}
+@keyframes roomBreathe{from{opacity:.5}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.hero-room .lamp-glow{animation:none}}
 .hero-eyebrow{color:#a9acae;display:flex;align-items:center;gap:12px}
 .hero-eyebrow::before{content:"";width:26px;height:1px;background:var(--ice);opacity:.8}
 .hero h1{font-size:clamp(2.7rem,8.2vw,6.6rem);line-height:.94;letter-spacing:-.038em;max-width:15ch;margin:0;}
