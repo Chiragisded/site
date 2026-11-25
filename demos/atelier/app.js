@@ -2,12 +2,14 @@
    Split into three files so the shop window stays small:
      shader.js  the WebGL light behind the hero
      scroll.js  the 3D deck, the pinned rail, the timeline beam
+     room.js    the hero cutaway, turned by hand
      app.js     reveals, split-text, pointer FX, boot
    Every enhancement falls back to readable content if a CDN import fails. */
 
 import { initShader } from './shader.js';
 import { startScrollEngine } from './scroll.js';
 import { initObjects } from './objects.js';
+import { initRoom } from './room.js';
 
 const reduceMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
 const narrowMQ = window.matchMedia('(max-width: 860px)');
@@ -79,6 +81,13 @@ async function initSplitText() {
   if (anime && anime.splitText && anime.animate) {
     try {
       split = anime.splitText(target, { words: { wrap: 'clip' }, chars: true });
+      // the clip wrapper is the line box, and Fraunces' descenders hang below
+      // it, so the g and p tails were sliced at the baseline
+      if (split && split.words) {
+        split.words.forEach((word) => {
+          if (word.parentElement) word.parentElement.classList.add('clipword');
+        });
+      }
       anime.animate(split.chars, {
         y: ['110%', '0%'],
         rotate: [5, 0],
@@ -258,6 +267,8 @@ try {
   /* the CSS gradient under the canvas stays as the fallback */
 }
 
+
+try { initRoom($('.hero-room')); } catch (err) {}
 
 if ($('#objects')) {
   try { initObjects($('#objects')).catch(() => {}); } catch (err) {}

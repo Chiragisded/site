@@ -50,12 +50,18 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
    lined up on the drawing board; it fills the empty third of a wide screen */
 .hero-room{display:none}
 @media (min-width:1280px){
-  .hero-room{display:block;position:absolute;right:3.4%;top:42%;width:min(32vw,440px);transform:translateY(-50%);pointer-events:none;z-index:1}
+  .hero-room{display:block;position:absolute;right:3.4%;top:42%;width:min(32vw,440px);transform:translateY(-50%);pointer-events:auto;cursor:grab;touch-action:pan-y;perspective:900px;z-index:3;user-select:none;-webkit-user-select:none}
+  .hero-room.is-grabbing{cursor:grabbing}
+  .hero-room .room-draw{transform-origin:50% 56%;will-change:transform;backface-visibility:hidden}
   .hero-room .room-glow{position:absolute;inset:-4% 2% 6%;background:radial-gradient(50% 50% at 52% 54%,rgba(124,199,232,.15),rgba(216,195,165,.05) 46%,transparent 74%);filter:blur(10px)}
   .hero-room .room-draw{position:relative;display:block;width:100%;height:auto;opacity:.97}
   .hero-room .lamp-glow{animation:roomBreathe 9s ease-in-out infinite alternate}
   .hero-room .room-cap{display:flex;justify-content:space-between;gap:14px;margin:6px 0 0;padding-top:9px;border-top:1px solid rgba(216,195,165,.20);font-size:.55rem;letter-spacing:.17em;color:#8d9196;white-space:nowrap}
 }
+.room-cap .room-hint{color:rgba(124,199,232,.85)}
+/* the split headline masks each word to the line box, which cuts the tail off
+   any descender in it (the g of "light" was being sliced at the baseline) */
+.hero h1 .clipword{overflow:clip;padding:.02em 0 .28em;margin:-.02em 0 -.28em}
 @keyframes roomBreathe{from{opacity:.5}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.hero-room .lamp-glow{animation:none}}
 .hero-eyebrow{color:#a9acae;display:flex;align-items:center;gap:12px}

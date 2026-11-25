@@ -145,7 +145,7 @@ to{background-position:-60% 0}
 .mix b{font-family:var(--mono);font-weight:400;font-size:.64rem;color:var(--ice);text-align:right}
 .spark{position:absolute;left:0;top:0;width:1px;height:16px;background:var(--ice);pointer-events:none;z-index:6;opacity:0;box-shadow:0 0 8px rgba(124,199,232,.7)}
 /* word-by-word headline rise */
-[data-words] .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.06em}
+[data-words] .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.18em}
 [data-words] .wi{display:inline-block;transform:translateY(112%);transition:transform .95s var(--ease);transition-delay:calc(var(--i,0) * 42ms);}
 [data-words].is-in .wi{transform:none}
 .cta-band canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0;opacity:.85;pointer-events:none}
