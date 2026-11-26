@@ -63,11 +63,15 @@
       <p class="stage-kicker">Strength gym · Sector 20, Kharghar</p>
       <h1 class="stage-display">Build<br>stronger</h1>
 
-      <figure class="stage-figure">
-        <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=1100&amp;q=80&amp;auto=format&amp;fit=crop"
+      <!-- the dumbbell is real geometry, drawn by hero3d.js; the photo is
+           what shows if WebGL, the CDN or the network gives up -->
+      <div class="stage-obj">
+        <img class="stage-obj-photo"
+             src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=1100&amp;q=80&amp;auto=format&amp;fit=crop"
              alt="A member pulling himself up to the bar at the top of the rep"
              width="1100" height="1650" fetchpriority="high">
-      </figure>
+        <canvas width="940" height="660" aria-hidden="true"></canvas>
+      </div>
 
       <div class="stat-card">
         <div><b>₹1,499</b><span>a month, zero joining fee</span></div>
@@ -190,6 +194,8 @@
     <span>Sample site by <a href="../index.html">Chirag</a> · <a href="../../index.html#package-3">what's in the ₹55,000 package</a></span>
   </div>
 </footer>
+
+<script type="module" src="hero3d.js"></script>
 
 <a class="sample-pill" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20saw%20the%20Iron%20Yard%20gym%20sample%20and%20want%20one%20for%20my%20business.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%2C%20prices%2C%20area%3B%20hours%2C%205%E2%80%9310%20photos%3B%20logo%2Fwording%3B%20the%20domain.%20My%20business%20is%3A%20">
   <b>Sample site by Chirag</b>
