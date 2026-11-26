@@ -292,7 +292,10 @@ dialog.checkout::backdrop{background:rgba(21,23,27,.72)}
   .strip div{padding:24px 0 0;border-right:0;border-bottom:1px solid var(--line)}
   .strip div:last-child{border-bottom:0}
   .cta{padding:36px 22px}
-  .sample-pill{left:16px;right:16px;max-width:none;text-align:center}
+  /* a compact chip, not a full-width bar sitting on the prices */
+  .sample-pill{left:auto;right:12px;bottom:12px;max-width:232px;text-align:left;padding:11px 14px}
+  .sample-pill b{font-size:.66rem}
+  .sample-pill span{font-size:.69rem}
 }
 @media (max-width:560px){
   body{font-size:16px}
