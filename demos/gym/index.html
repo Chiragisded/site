@@ -25,7 +25,7 @@
 <link rel="icon" type="image/svg+xml" href="../../favicon.svg?v=neon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
   /* reduced motion, and a focus ring that follows the text colour */
@@ -52,37 +52,48 @@
       <a href="plans.html">Memberships</a>
       <a href="inside.html">The gym</a>
     </nav>
+    <a class="btn nav-cta" href="plans.html">Join online</a>
   </div>
 </header>
 
 <main id="main">
 
-  <div class="wrap hero">
-    <div>
-      <p class="eyebrow">Sector 20, Kharghar</p>
-      <h1>Four racks. Nobody waiting at seven.</h1>
-      <p>A strength gym with free weights, two trainers on the floor every shift, and a membership you can cancel without a phone call.</p>
-      <div class="hero-actions">
-        <a class="btn" href="plans.html">See memberships</a>
-        <a class="btn quiet" href="inside.html">Look around first</a>
-      </div>
-      <div class="smallfacts">
-        <span><b>₹1,499</b> a month</span>
-        <span><b>Zero</b> joining fee</span>
-        <span><b>5:30am</b> to 11pm</span>
-      </div>
-    </div>
-    <div class="hero-photo">
-      <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1000&amp;q=80&amp;auto=format&amp;fit=crop"
-           alt="Hands gripping a loaded barbell on the gym floor"
-           width="1000" height="1250" fetchpriority="high">
-    </div>
-  </div>
+  <section class="stage">
+    <div class="wrap">
+      <p class="stage-kicker">Strength gym · Sector 20, Kharghar</p>
+      <h1 class="stage-display">Build<br>stronger</h1>
 
-  <img class="band"
-       src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&amp;q=80&amp;auto=format&amp;fit=crop"
-       alt="A long dumbbell rack with members training in the background"
-       width="1800" height="771" loading="lazy">
+      <figure class="stage-figure">
+        <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=1100&amp;q=80&amp;auto=format&amp;fit=crop"
+             alt="A member pulling himself up to the bar at the top of the rep"
+             width="1100" height="1650" fetchpriority="high">
+      </figure>
+
+      <div class="stat-card">
+        <div><b>₹1,499</b><span>a month, zero joining fee</span></div>
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=200&amp;q=70&amp;auto=format&amp;fit=crop"
+             alt="" width="74" height="86" loading="lazy">
+      </div>
+
+      <div class="stage-foot">
+        <ul class="stage-facts">
+          <li><b>Open</b><span>5:30am – 11pm</span></li>
+          <li><b>On the floor</b><span>2 trainers, every shift</span></li>
+          <li><b>First session</b><span>Free, no card needed</span></li>
+        </ul>
+        <div class="stage-bottom">
+          <div>
+            <p class="tagline">Four racks. <em>Nobody waiting</em> at seven.</p>
+            <p class="stage-note">A strength gym with free weights, two trainers on the floor every shift, and a membership you can cancel without a phone call.</p>
+          </div>
+          <div class="stage-actions">
+            <a class="btn" href="plans.html">See memberships</a>
+            <a class="btn quiet" href="inside.html">Look around first</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section>
     <div class="wrap">
