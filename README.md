@@ -1,25 +1,24 @@
 # Sample websites — Chirag
 
-Four demo websites for small businesses, built to show what a client actually gets. Plain HTML, CSS and JavaScript — no build step, no install. Open any file by double-clicking it.
+Three demo websites for small businesses, built to show what a client actually gets. Plain HTML, CSS and JavaScript — no build step, no install. Open any file by double-clicking it.
 
 ## What's here
 
 | Path | What it is |
 |---|---|
 | `index.html` | My services and prices page |
-| `demos/index.html` | Hub page listing the four samples |
-| `demos/salon/` | Sample 1 — simple business site (₹12,000) |
-| `demos/coaching/` | Sample 2 — site with a working enquiry form (₹35,000) |
-| `demos/gym/` | Sample 3 — memberships with an online checkout (₹55,000) |
-| `demos/atelier/` | Sample 4 — premium, animation-led brand site |
+| `demos/index.html` | Hub page listing the three samples |
+| `demos/salon/` | Sample 1 — simple business site (₹3,000) |
+| `demos/coaching/` | Sample 2 — site with a working enquiry form (₹9,000) |
+| `demos/atelier/` | Sample 3 — premium, animation-led brand site (custom quote, ₹25,000 estimate) |
 
 Every sample is a three-page site sharing one stylesheet per folder: home, a detail page, and a page where the customer does something (visit, book, pay, enquire).
 
-All four businesses are invented. They are demos of the work, not client projects.
+All three businesses are invented. They are demos of the work, not client projects.
 
-## Sample 4 — Sable & Stone
+## Sample 3 — Sable & Stone
 
-An architecture studio site, deliberately the most advanced of the four:
+An architecture studio site, deliberately the most advanced of the three:
 
 - `index.html` — WebGL shader behind the headline, a 3D deck of rooms that turns as you scroll, a 3D table of the studio's own objects you can spin with a drag, hover-lit cards, a marquee strip.
 - `work.html` — a pinned horizontal project reel and a grid of cards that tilt toward the cursor.
@@ -35,7 +34,6 @@ The animation libraries load from a CDN at runtime. If they fail, or the visitor
 ## Notes on what is real vs simulated
 
 - The enquiry form in `demos/coaching/` stores submissions in the browser (localStorage) so the flow can be shown without a server.
-- The checkout in `demos/gym/` is a demo screen. On a live site it is replaced by Razorpay (UPI, cards, netbanking).
 - Photos are free-licence Unsplash images, linked from Unsplash's CDN rather than copied into this repo.
 
 ## Publishing it free with GitHub Pages

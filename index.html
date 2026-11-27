@@ -16,12 +16,12 @@
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Chirag — websites for small businesses in Mumbai and Navi Mumbai. From ₹12,000.">
+<meta property="og:image:alt" content="Chirag — websites for small businesses in Mumbai and Navi Mumbai. From ₹3,000.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Chirag — websites for small businesses in Mumbai &amp; Navi Mumbai">
 <meta name="twitter:description" content="I build websites for small businesses in Mumbai and Navi Mumbai. Fixed price upfront: enquiry forms, a database, online payments and a site you own.">
 <meta name="twitter:image" content="https://chiragisded.github.io/site/og-image.png">
-<meta name="twitter:image:alt" content="Chirag — websites for small businesses in Mumbai and Navi Mumbai. From ₹12,000.">
+<meta name="twitter:image:alt" content="Chirag — websites for small businesses in Mumbai and Navi Mumbai. From ₹3,000.">
 <!--
   ─────────────────────────────────────────────────────────────
   NOTHING LEFT TO CHANGE — the page is ready to send.
@@ -30,9 +30,10 @@
   "Who you're dealing with" block near the bottom.
 
   Prices are set to:
-    Basic site        From ₹12,000
-    Database/booking  From ₹35,000
-    Payments/shop     From ₹55,000
+    Starter site      From ₹3,000
+    Business site     From ₹6,000
+    With database     From ₹9,000
+    Custom (payments) From ₹25,000 (estimate)
   If you change one, change it in TWO places: the card near the
   top and the table near the bottom.
   ─────────────────────────────────────────────────────────────
@@ -53,7 +54,7 @@
   "description": "Websites for small businesses in Mumbai and Navi Mumbai. Fixed-price builds, with enquiry forms, bookings, databases and online payments.",
   "url": "https://chiragisded.github.io/site/",
   "telephone": "+919004910077",
-  "priceRange": "₹12,000 - ₹55,000",
+  "priceRange": "₹3,000 - ₹25,000",
   "currenciesAccepted": "INR",
   "address": {
     "@type": "PostalAddress",
@@ -65,7 +66,7 @@
     { "@type": "City", "name": "Mumbai" },
     { "@type": "City", "name": "Navi Mumbai" }
   ],
-  "serviceType": ["Small business website", "Website with database", "Online payments and booking website"],
+  "serviceType": ["Starter business website", "Small business website", "Website with database", "Online payments and booking website"],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Website packages",
@@ -73,11 +74,33 @@
       {
         "@type": "Offer",
         "position": 1,
+        "name": "A starter business website",
+        "description": "A 1–3 page business website with services, prices and a contact form that emails every enquiry.",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 3000,
+          "priceCurrency": "INR"
+        },
+        "itemOffered": {
+          "@type": "Service",
+          "name": "A starter business website",
+          "serviceType": "Starter business website",
+          "description": "For a shop, salon, tradesperson or clinic that people search for and find nothing yet.",
+          "provider": { "@id": "https://chiragisded.github.io/site/#business" },
+          "areaServed": [
+            { "@type": "City", "name": "Mumbai" },
+            { "@type": "City", "name": "Navi Mumbai" }
+          ]
+        }
+      },
+      {
+        "@type": "Offer",
+        "position": 2,
         "name": "A proper business website",
         "description": "A 4–6 page business website with services, prices, hours and location, and a contact form that emails every enquiry.",
         "priceSpecification": {
           "@type": "PriceSpecification",
-          "minPrice": 12000,
+          "minPrice": 6000,
           "priceCurrency": "INR"
         },
         "itemOffered": {
@@ -94,12 +117,12 @@
       },
       {
         "@type": "Offer",
-        "position": 2,
+        "position": 3,
         "name": "Website with a database",
         "description": "The business website plus enquiries saved to a database in your name, with email alerts and a way to view, search and export them.",
         "priceSpecification": {
           "@type": "PriceSpecification",
-          "minPrice": 35000,
+          "minPrice": 9000,
           "priceCurrency": "INR"
         },
         "itemOffered": {
@@ -116,12 +139,12 @@
       },
       {
         "@type": "Offer",
-        "position": 3,
-        "name": "Selling and payments",
+        "position": 4,
+        "name": "Selling and payments (custom quote)",
         "description": "The business website plus Razorpay or PayU set up in your name, with deposits, orders and receipts saved to your database.",
         "priceSpecification": {
           "@type": "PriceSpecification",
-          "minPrice": 55000,
+          "minPrice": 25000,
           "priceCurrency": "INR"
         },
         "itemOffered": {
@@ -185,7 +208,7 @@
     <div class="wrap">
       <div class="sec-head">
         <p class="kicker">What I build</p>
-        <h2>Three kinds of website.</h2>
+        <h2>Four ways in.</h2>
         <p>Most businesses start with the first and grow into the others. You can always add features later — nothing gets thrown away.</p>
       </div>
 
@@ -195,59 +218,72 @@
             <img src="demos/previews/template-salon.jpg" alt="The Neem Salon sample: a dark page with a large photograph, prices and a booking button" width="1000" height="625" loading="lazy" decoding="async">
             <span>Template · Neem Salon</span>
           </a>
-          <p class="tag">Be findable</p>
-          <h3>A proper business website</h3>
-          <p class="small">For a shop, salon, tradesperson or clinic that people search for and find nothing.</p>
+          <p class="tag">Start here</p>
+          <h3>A starter business website</h3>
+          <p class="small">For a shop, salon, tradesperson or clinic that people search for and find nothing yet.</p>
           <ul>
-            <li>4–6 pages that look right on phones</li>
-            <li>Your services, prices, hours and location on a map</li>
+            <li>1–3 pages: home, services, contact</li>
+            <li>Your services and prices listed</li>
             <li>Contact form that emails you every enquiry</li>
-            <li>Set up to appear on Google for your business name</li>
+            <li>Mobile-friendly and fast to load</li>
+            <li>A WhatsApp button so people can message you</li>
           </ul>
-          <p class="price"><b>From ₹12,000</b>One-off. Domain and hosting from about ₹4,000 a year.</p>
+          <p class="price"><b>From ₹3,000</b>One-off. Domain and hosting from about ₹4,000 a year.</p>
 
-          <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B912%2C000%20package%20%E2%80%94%20a%20proper%20business%20website.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%2C%20prices%2C%20area%3B%20hours%2C%205%E2%80%9310%20photos%3B%20logo%2Fwording%3B%20the%20domain.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
+          <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B93%2C000%20package%20%E2%80%94%20a%20starter%20business%20website.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%2C%20prices%2C%20area%3B%20hours%2C%205%E2%80%9310%20photos%3B%20logo%2Fwording%3B%20the%20domain.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
 
         <div class="card" id="package-2">
+          <p class="tag">Look the part</p>
+          <h3>A proper business website</h3>
+          <p class="small">When you want the site to do the selling, not just exist.</p>
+          <ul>
+            <li>Everything in the starter package</li>
+            <li>4–6 pages with services, prices, hours and location on a map</li>
+            <li>Set up to appear on Google for your business name</li>
+            <li>A photo gallery of your work</li>
+            <li>WhatsApp buttons with the message pre-written</li>
+          </ul>
+          <p class="price"><b>From ₹6,000</b>One-off. Domain and hosting from about ₹4,000 a year.</p>
+
+          <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B96%2C000%20package%20%E2%80%94%20a%20proper%20business%20website.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%2C%20prices%2C%20area%3B%20hours%2C%205%E2%80%9310%20photos%3B%20logo%2Fwording%3B%20the%20domain.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
+
+        <div class="card" id="package-3">
           <a class="shot" href="demos/coaching/index.html">
             <img src="demos/previews/template-coaching.jpg" alt="The Bright Minds Classes sample: a cream editorial page with a timetable and admission form" width="1000" height="625" loading="lazy" decoding="async">
             <span>Template · Bright Minds Classes</span>
           </a>
-          <p class="tag">Handle enquiries properly</p>
+          <p class="tag">Never lose an enquiry</p>
           <h3>Website with a database</h3>
           <p class="small">When enquiries, bookings or applications need to be tracked instead of lost in your inbox.</p>
           <ul>
-            <li>Everything in the first package</li>
+            <li>Everything in the first two packages</li>
             <li>Enquiries saved to a database, not just an inbox</li>
             <li>Database set up in your name — Supabase, Firebase or MySQL</li>
             <li>I show you how to view, search and export your enquiries</li>
             <li>Email alert to you for every new enquiry</li>
             <li>A staff login area can be added — we scope it on the call</li>
           </ul>
-          <p class="price"><b>From ₹35,000</b>One-off. Includes 30 days of fixes after launch.</p>
+          <p class="price"><b>From ₹9,000</b>One-off. Includes 30 days of fixes after launch.</p>
 
-          <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B935%2C000%20package%20%E2%80%94%20a%20website%20with%20a%20database.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%2C%20prices%2C%20area%3B%20hours%2C%205%E2%80%9310%20photos%3B%20logo%2Fwording%3B%20the%20domain.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
+          <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B99%2C000%20package%20%E2%80%94%20a%20website%20with%20a%20database.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%2C%20prices%2C%20area%3B%20hours%2C%205%E2%80%9310%20photos%3B%20logo%2Fwording%3B%20the%20domain.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
 
-        <div class="card" id="package-3">
-          <a class="shot" href="demos/gym/index.html">
-            <img src="demos/previews/template-gym.jpg" alt="The Iron Yard sample: a deep-blue page with a giant Build Stronger headline, a 3D dumbbell floating over it and membership plans below" width="1000" height="625" loading="lazy" decoding="async">
-            <span>Template · Iron Yard</span>
-          </a>
+        <div class="card" id="package-4">
           <p class="tag">Get paid online</p>
           <h3>Selling and payments</h3>
-          <p class="small">For anyone taking deposits or orders online, without a shop till.</p>
+          <p class="small">For anyone taking deposits or orders online, without a shop till. The price below is an estimate — it varies with the requirements.</p>
           <ul>
-            <li>A proper business website (the first package) — 4–6 pages, contact form, Google listing for the business name</li>
+            <li>Everything in the first three packages</li>
             <li>Razorpay or PayU set up in your name — UPI, cards and netbanking</li>
             <li>Deposits, fixed-price services or a small order</li>
-            <li>Orders saved in a database in your name (the same database from the second package, or your existing one)</li>
+            <li>Orders saved in a database in your name</li>
             <li>Receipts and confirmation emails sent by the gateway</li>
             <li>Orders and payments you can see in the gateway dashboard</li>
             <li>Refunds you can issue yourself from the same dashboard</li>
+            <li>Custom brand work (animations, 3D, shaders) if you want it — scoped on the call</li>
           </ul>
-          <p class="price"><b>From ₹55,000</b>One-off. Payment gateway fees are charged by them, not by me.</p>
+          <p class="price"><b>From ₹25,000</b>Estimate. Final price depends on scope. Payment gateway fees are charged by them, not by me.</p>
 
-          <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20the%20%E2%82%B955%2C000%20package%20%E2%80%94%20selling%20and%20payments%20online.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%2C%20prices%2C%20area%3B%20hours%2C%205%E2%80%9310%20photos%3B%20logo%2Fwording%3B%20the%20domain.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
+          <a class="btn btn-accent card-cta" href="https://wa.me/919004910077?text=Hi%20Chirag%2C%20I%20want%20a%20custom%20quote%20%E2%80%94%20selling%20and%20payments%20online.%20Sending%3A%20name%2C%20address%2C%20phone%2FWhatsApp%3B%20what%20I%20sell%2C%20prices%2C%20area%3B%20hours%2C%205%E2%80%9310%20photos%3B%20logo%2Fwording%3B%20the%20domain.%20My%20business%20is%3A%20">Ask about this one</a>        </div>
       </div>
 
       <div class="terms">
@@ -316,41 +352,34 @@
     <div class="wrap">
       <div class="sec-head">
         <p class="kicker">Proof</p>
-        <h2>Four sites you can open right now.</h2>
-        <p>No client quotes yet. I'm early in this and I won't invent any. What I do have is four complete sites I built end to end: the businesses in them are invented, the forms, the database and the payment flow are real. Open one on your phone and judge the build before you message me.</p>
+        <h2>Three sites you can open right now.</h2>
+        <p>No client quotes yet. I'm early in this and I won't invent any. What I do have is three complete sites I built end to end: the businesses in them are invented, the forms and the database are real. Open one on your phone and judge the build before you message me.</p>
       </div>
 
       <div class="proofs">
         <div class="proof">
-          <p class="tag">Package 1 · from ₹12,000</p>
+          <p class="tag">Package 1 · from ₹3,000</p>
           <h3>Neem Salon &amp; Spa</h3>
-          <p>Four pages, a full price list, opening hours, a map and a booking button that opens WhatsApp.</p>
+          <p>Three pages, a full price list, opening hours, a map and a booking button that opens WhatsApp.</p>
           <a href="demos/salon/index.html">Open the salon site →</a>
         </div>
 
         <div class="proof">
-          <p class="tag">Package 2 · from ₹35,000</p>
+          <p class="tag">Package 3 · from ₹9,000</p>
           <h3>Bright Minds Classes</h3>
           <p>Enquiries saved to a database instead of lost in a DM, with a free-trial booking form.</p>
           <a href="demos/coaching/index.html">Open the tuition site →</a>
         </div>
 
         <div class="proof">
-          <p class="tag">Package 3 · from ₹55,000</p>
-          <h3>Iron Yard Fitness</h3>
-          <p>Plans side by side, online joining by UPI or card, and a receipt in the member's inbox.</p>
-          <a href="demos/gym/index.html">Open the gym site →</a>
-        </div>
-
-        <div class="proof">
-          <p class="tag">Custom quote</p>
+          <p class="tag">Custom quote · from ₹25,000 (estimate)</p>
           <h3>Sable &amp; Stone</h3>
-          <p>A studio brand site where the type, the scroll and the photographs do the selling.</p>
+          <p>A studio brand site where the type, the scroll and the photographs do the selling. Scope and price agreed in writing.</p>
           <a href="demos/atelier/index.html">Open the studio site →</a>
         </div>
       </div>
 
-      <p class="proof-note">All four, side by side, with what each one fixes and what the owner would need to hand over: <a href="demos/index.html">sample sites</a>.</p>
+      <p class="proof-note">All three, side by side, with what each one fixes and what the owner would need to hand over: <a href="demos/index.html">sample sites</a>.</p>
     </div>
   </section>
 
@@ -418,7 +447,7 @@
 
       <details>
         <summary>How much does a website actually cost?</summary>
-        <p>Most small business sites come in between ₹12,000 and ₹55,000 depending on whether you need a database, bookings or payments. You get one fixed price in writing before any work starts, so the number never moves unless you ask for something extra.</p>
+        <p>Most small business sites come in between ₹3,000 and ₹25,000 depending on how many pages you need and whether you need a database, bookings or payments. The ₹3,000, ₹6,000 and ₹9,000 packages are fixed prices, agreed in writing before any work starts, so the number never moves unless you ask for something extra. Payments and other custom work start at an estimated ₹25,000, and the quote is finalised once I know the requirements.</p>
       </details>
       <details>
         <summary>How long does it take?</summary>
