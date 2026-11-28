@@ -42,7 +42,7 @@ The animation libraries load from a CDN at runtime. If they fail, or the visitor
 2. Repo → **Settings** → **Pages**.
 3. Source: **Deploy from a branch**, Branch: `main`, folder `/ (root)`.
 4. After a minute the site appears at:
-   `https://chiragisded.github.io/site/`
+   `https://salianbuilds.github.io/site/`
    (any repo works the same way: `<username>.github.io/<repo-name>/`)
 
 Send that link to businesses — it works on any phone.

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chiragisded.github.io/site/sitemap.xml
+Sitemap: https://salianbuilds.github.io/site/sitemap.xml
