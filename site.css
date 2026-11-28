@@ -187,6 +187,7 @@ h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(2rem,3.9vw,3.05r
 .proof a{font-size:14px;color:var(--text);text-decoration:none;border-bottom:1px solid rgba(200,242,78,.5);padding-bottom:2px;align-self:flex-start}
 .proof a:hover{color:var(--accent)}
 .proof-note{margin:22px 0 0;font-size:14.5px;color:var(--muted)}
+.proof-facts{font-size:12.5px;line-height:1.5;color:var(--muted);border-top:1px solid var(--line);padding:12px 0 0;margin:0 0 16px}
 .proof-note a{color:var(--text);text-decoration:underline;text-underline-offset:3px}
 
 /* running costs */
